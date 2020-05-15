@@ -1,15 +1,6 @@
 import React from 'react';
 import NextLink from 'next/link';
 import { Flex, Box } from '@chakra-ui/core';
-import styled from '@emotion/styled';
-
-const StickyNav = styled(Flex)`
-  position: sticky;
-  z-index: 10;
-  top: 0;
-  backdrop-filter: saturate(180%) blur(20px);
-  transition: background-color 0.1 ease-in-out;
-`;
 
 const Container = ({ children }) => (
   <>
@@ -19,7 +10,7 @@ const Container = ({ children }) => (
         w="full"
         h="10px"
       />
-      <StickyNav
+      <Flex
         flexDirection="row"
         justifyContent="space-between"
         alignItems="center"
@@ -42,7 +33,7 @@ const Container = ({ children }) => (
             />
           </Box>
         </NextLink>
-      </StickyNav>
+      </Flex>
     </Box>
     {children}
   </>
