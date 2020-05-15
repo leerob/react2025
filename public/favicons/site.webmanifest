@@ -1,7 +1,7 @@
 {
-  "name": "jamstackfns – The best serverless functions for JAMstack applications",
-  "short_name": "jamstackfns",
-  "description": "Deploy serverless functions to Vercel or Netlify for your static site.",
+  "name": "React 2025 – Build applications from the the future, today.",
+  "short_name": "React 2025",
+  "description": "Learn how to build and deploy a modern Jamstack application using the most popular open-source software.",
   "icons": [
     {
       "src": "/favicons/android-chrome-192x192.png",
@@ -14,10 +14,7 @@
       "type": "image/png"
     }
   ],
-  "background_color": "#ffffff",
   "theme_color": "#ffffff",
-  "display": "standalone",
-  "dir": "ltr",
-  "lang": "en-US",
-  "orientation": "portrait-primary"
+  "background_color": "#ffffff",
+  "display": "standalone"
 }
