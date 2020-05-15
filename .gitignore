@@ -1,0 +1,7 @@
+*.log
+.DS_Store
+.next
+node_modules
+.env.local
+public/sitemap.xml
+.now

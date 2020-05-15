@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://jamstackfns.com/sitemap.xml
