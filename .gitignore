@@ -4,4 +4,4 @@
 node_modules
 .env.local
 public/sitemap.xml
-.now
+.vercel
