@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://jamstackfns.com/sitemap.xml
+Sitemap: https://react2025.com/sitemap.xml
