@@ -9,12 +9,6 @@ $ yarn
 $ yarn dev
 ```
 
-To use anything that requires API routes, you will need to run `vc dev` and have a `.env.local` file similar to this.
-
-```
-BUTTONDOWN_API_KEY=
-```
-
 ## Built Using
 
 - [Next.js](https://nextjs.org/)

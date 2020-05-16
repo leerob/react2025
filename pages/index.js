@@ -1,5 +1,17 @@
 import React from 'react';
-import { Heading, Flex, Stack, Box, Text } from '@chakra-ui/core';
+import {
+  Heading,
+  Flex,
+  Stack,
+  Box,
+  Text,
+  List,
+  ListItem,
+  ListIcon,
+  Divider,
+  Link,
+  Icon
+} from '@chakra-ui/core';
 
 import Container from '../components/Container';
 import Subscribe from '../components/Subscribe';
@@ -71,15 +83,121 @@ const Index = () => (
             size="lg"
             fontWeight="800"
           >
-            “Building modern web apps is way too difficult.”
+            “Building modern web apps is too difficult.”
           </Heading>
           <Text color="gray.700" mb={4}>
-            Learn how to build and deploy a modern Jamstack application using
-            the most popular open-source software.
+            Have you tried to launch a project only to get stuck trying to do it
+            "the right way"? I've been there. I'd waste time dealing with
+            complex tech instead of shipping products. Then, I started building
+            apps like it's 2025.
           </Text>
           <Text color="gray.700" mb={4}>
             Spend less time doing the things you hate.
           </Text>
+          <List spacing={2} mt={4}>
+            <ListItem fontWeight="medium" fontSize="lg">
+              <ListIcon icon="x" color="red.500" />
+              Provisioning Servers
+            </ListItem>
+            <ListItem fontWeight="medium" fontSize="lg">
+              <ListIcon icon="x" color="red.500" />
+              What is Kubernetes?
+            </ListItem>
+            <ListItem fontWeight="medium" fontSize="lg">
+              <ListIcon icon="x" color="red.500" />
+              Dealing with Webpack
+            </ListItem>
+            <ListItem fontWeight="medium" fontSize="lg">
+              <ListIcon icon="x" color="red.500" />
+              Cross-browser issues
+            </ListItem>
+          </List>
+          <Text color="gray.700" mb={4} mt={8}>
+            And more time doing the things you <b>love.</b>
+          </Text>
+          <List spacing={2} mt={4}>
+            <ListItem fontWeight="medium" fontSize="lg">
+              <ListIcon icon="check" color="green.500" />
+              Building your product
+            </ListItem>
+            <ListItem fontWeight="medium" fontSize="lg">
+              <ListIcon icon="check" color="green.500" />
+              Deploying with ease
+            </ListItem>
+            <ListItem fontWeight="medium" fontSize="lg">
+              <ListIcon icon="check" color="green.500" />
+              Making your customers happy
+            </ListItem>
+            <ListItem fontWeight="medium" fontSize="lg">
+              <ListIcon icon="check" color="green.500" />
+              Working with modern tools
+            </ListItem>
+          </List>
+          <Divider borderColor="gray.200" my={16} w="100%" />
+          <Heading
+            letterSpacing="tight"
+            mt={4}
+            as="h2"
+            size="lg"
+            fontWeight="800"
+          >
+            Transform front-end to full-stack.
+          </Heading>
+          <Text color="gray.700" mt={4}>
+            Are you frustrated with how long it takes to go from idea to
+            production? As a front-end developer, I wanted to
+            <b> bring my ideas to life.</b> Not just the front-end, but the full
+            stack.
+          </Text>
+          <Text color="gray.700" mt={4}>
+            Then, I discovered the{' '}
+            <Link
+              isExternal
+              fontWeight="bold"
+              href="https://jamstack.org"
+              textDecoration="none"
+              borderBottom="2px solid #0af5f4"
+              transition="all 0.1s ease-in"
+              _hover={{
+                textDecoration: 'none',
+                borderBottom: '2px solid #09DB1F'
+              }}
+            >
+              Jamstack
+            </Link>
+            &nbsp;and the optimal workflow for front-end developers.
+          </Text>
+          <List spacing={2} mt={8} as="ol" styleType="decimal">
+            <ListItem fontWeight="medium" fontSize="lg">
+              {/* Develop hybrid applications. */}
+              Build dynamic applications that become static.
+            </ListItem>
+            <ListItem fontWeight="medium" fontSize="lg">
+              Push code to repository with Git.
+            </ListItem>
+            <ListItem fontWeight="medium" fontSize="lg">
+              Deploy instantly to a global CDN.
+            </ListItem>
+          </List>
+          <Text color="gray.700" mt={16} fontStyle="italic" fontSize="lg">
+            "Not only did I enjoy your Mastering Next.js course, but I learned
+            many things entirely new to me. This course opened my eyes to what's
+            possible and what you can achieve with these technologies." –– José
+            Llamas
+          </Text>
+
+          <Flex
+            color="gray.900"
+            mt={2}
+            fontWeight="bold"
+            pr={8}
+            align="center"
+            justify="flex-end"
+            w="full"
+          >
+            <Icon name="nextjs" mr={2} />
+            Mastering Next.js
+          </Flex>
         </Flex>
       </Stack>
     </Flex>
