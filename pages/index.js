@@ -213,7 +213,7 @@ const Index = () => (
               Build dynamic applications that become static.
             </ListItem>
             <ListItem fontWeight="medium" fontSize="lg">
-              Push code to repository with Git.
+              Push code to a repository with Git.
             </ListItem>
             <ListItem fontWeight="medium" fontSize="lg">
               Deploy instantly to a global CDN.
@@ -224,6 +224,84 @@ const Index = () => (
             many things entirely new to me. This course opened my eyes to what's
             possible and what you can achieve with these technologies." –– José
             Llamas
+          </Text>
+          <Flex
+            color="gray.900"
+            mt={2}
+            fontWeight="bold"
+            pr={8}
+            align="center"
+            justify="flex-end"
+            w="full"
+          >
+            <Icon name="nextjs" mr={2} />
+            Mastering Next.js
+          </Flex>
+          <Divider borderColor="gray.200" my={16} w="100%" />
+          <Heading
+            letterSpacing="tight"
+            mt={4}
+            as="h2"
+            size="lg"
+            fontWeight="bold"
+          >
+            Not your typical course.
+          </Heading>
+          <Text color="gray.700" mt={4}>
+            Are you tired of courses that don't show real-world applications? In
+            my last course, I showed how to build an application with a
+            database, authentication, and more. But I never launched it.
+          </Text>
+          <Text color="gray.700" mt={4}>
+            This course will show the journey from zero lines of code to
+            production for a real SaaS app. This isn't another example. At the
+            end of the course, <b>I'm launching the product.</b>
+          </Text>
+          <List spacing={2} mt={12}>
+            <ListItem
+              fontWeight="medium"
+              fontSize="lg"
+              alignItems="center"
+              display="flex"
+            >
+              <ListIcon icon="check" color="green.500" />
+              Next.js / React
+            </ListItem>
+            <ListItem
+              fontWeight="medium"
+              fontSize="lg"
+              alignItems="center"
+              display="flex"
+            >
+              <ListIcon icon="check" color="green.500" />
+              Firebase Authentication / Firestore
+            </ListItem>
+            <ListItem
+              fontWeight="medium"
+              fontSize="lg"
+              alignItems="center"
+              display="flex"
+            >
+              <ListIcon icon="check" color="green.500" />
+              Subscription payments with Stripe
+            </ListItem>
+            <ListItem
+              fontWeight="medium"
+              fontSize="lg"
+              alignItems="center"
+              display="flex"
+            >
+              <ListIcon icon="check" color="green.500" />
+              Deployed serverless to Vercel
+            </ListItem>
+          </List>
+          <Text color="gray.700" mt={16} fontStyle="italic" fontSize="lg">
+            "Lee is an awesome teacher and I really enjoyed taking this course.
+            It not only touches on the core of Next.js, but also broader
+            concepts like TypeScript, testing and authentication. Videos are
+            great quality and good length. I would definitely recommend to both
+            newcomers to Next.js as well as to people who want to sharpen
+            themselves on the Next.js fundamentals." –– Maurits Misana
           </Text>
           <Flex
             color="gray.900"
