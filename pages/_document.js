@@ -22,8 +22,20 @@ class MyDocument extends Document {
           <link href="/favicons/favicon.ico" rel="shortcut icon" />
           <link href="/favicons/site.webmanifest" rel="manifest" />
           <link
-            href="https://fonts.googleapis.com/css?family=Inter:400,600,700,800&display=swap"
+            rel="preconnect"
+            href="https://fonts.gstatic.com/"
+            crossOrigin=""
+          />
+          <link
+            rel="preload"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+            as="style"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
             rel="stylesheet"
+            media="print"
+            onLoad="this.media='all'"
           />
           <link
             href="/favicons/apple-touch-icon.png"

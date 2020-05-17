@@ -55,7 +55,7 @@ const Subscribe = () => {
 
   return (
     <Box m={8} w="100%" mx="auto" as="form">
-      <Heading as="h5" size="xs" mb={1} color="gray.900" fontWeight="bold">
+      <Heading as="h5" size="xs" mb={1} color="gray.900" fontWeight="medium">
         Sign up for our newsletter to get free previews of React 2025 as it’s
         built.
       </Heading>

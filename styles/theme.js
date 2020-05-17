@@ -10,8 +10,7 @@ const theme = {
   fontWeights: {
     normal: 400,
     medium: 600,
-    bold: 700,
-    black: 800
+    bold: 800
   },
   icons: {
     ...chakraTheme.icons,

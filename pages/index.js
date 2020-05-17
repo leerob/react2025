@@ -41,7 +41,7 @@ const Index = () => (
               mb={4}
               as="h1"
               size="2xl"
-              fontWeight="800"
+              fontWeight="bold"
             >
               Start developing
               <Box>
@@ -82,7 +82,7 @@ const Index = () => (
             mb={4}
             as="h2"
             size="lg"
-            fontWeight="800"
+            fontWeight="bold"
           >
             “Building modern web apps is too difficult.”
           </Heading>
@@ -140,7 +140,7 @@ const Index = () => (
             mt={4}
             as="h2"
             size="lg"
-            fontWeight="800"
+            fontWeight="bold"
           >
             Transform front-end to full-stack.
           </Heading>
