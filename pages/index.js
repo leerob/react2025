@@ -214,7 +214,7 @@ const Index = () => (
               <Link
                 mt={2}
                 isExternal
-                href="https://jamstack.wtf"
+                href="https://leerob.io"
                 textDecoration="none"
                 borderBottom="2px solid #0af5f4"
                 transition="all 0.1s ease-in"
