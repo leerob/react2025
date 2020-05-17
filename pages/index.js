@@ -96,19 +96,39 @@ const Index = () => (
             Spend less time doing the things you hate.
           </Text>
           <List spacing={2} mt={4}>
-            <ListItem fontWeight="medium" fontSize="lg">
+            <ListItem
+              fontWeight="medium"
+              fontSize="lg"
+              alignItems="center"
+              display="flex"
+            >
               <ListIcon icon="x" color="red.500" />
               Provisioning Servers
             </ListItem>
-            <ListItem fontWeight="medium" fontSize="lg">
+            <ListItem
+              fontWeight="medium"
+              fontSize="lg"
+              alignItems="center"
+              display="flex"
+            >
               <ListIcon icon="x" color="red.500" />
               What is Kubernetes?
             </ListItem>
-            <ListItem fontWeight="medium" fontSize="lg">
+            <ListItem
+              fontWeight="medium"
+              fontSize="lg"
+              alignItems="center"
+              display="flex"
+            >
               <ListIcon icon="x" color="red.500" />
               Dealing with Webpack
             </ListItem>
-            <ListItem fontWeight="medium" fontSize="lg">
+            <ListItem
+              fontWeight="medium"
+              fontSize="lg"
+              alignItems="center"
+              display="flex"
+            >
               <ListIcon icon="x" color="red.500" />
               Cross-browser issues
             </ListItem>
@@ -117,19 +137,39 @@ const Index = () => (
             And more time doing the things you <b>love.</b>
           </Text>
           <List spacing={2} mt={4}>
-            <ListItem fontWeight="medium" fontSize="lg">
+            <ListItem
+              fontWeight="medium"
+              fontSize="lg"
+              alignItems="center"
+              display="flex"
+            >
               <ListIcon icon="check" color="green.500" />
               Building your product
             </ListItem>
-            <ListItem fontWeight="medium" fontSize="lg">
+            <ListItem
+              fontWeight="medium"
+              fontSize="lg"
+              alignItems="center"
+              display="flex"
+            >
               <ListIcon icon="check" color="green.500" />
               Deploying with ease
             </ListItem>
-            <ListItem fontWeight="medium" fontSize="lg">
+            <ListItem
+              fontWeight="medium"
+              fontSize="lg"
+              alignItems="center"
+              display="flex"
+            >
               <ListIcon icon="check" color="green.500" />
               Making your customers happy
             </ListItem>
-            <ListItem fontWeight="medium" fontSize="lg">
+            <ListItem
+              fontWeight="medium"
+              fontSize="lg"
+              alignItems="center"
+              display="flex"
+            >
               <ListIcon icon="check" color="green.500" />
               Working with modern tools
             </ListItem>
