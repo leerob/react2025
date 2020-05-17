@@ -8,7 +8,7 @@ const Container = ({ children }) => (
       <Box
         background="linear-gradient(270deg, #0AF5F4 25.28%, #09DB1F 59.7%, #F7F322 97.75%)"
         w="full"
-        h="10px"
+        h="15px"
       />
       <Flex
         flexDirection="row"

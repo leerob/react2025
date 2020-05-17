@@ -10,7 +10,8 @@ import {
   ListIcon,
   Divider,
   Link,
-  Icon
+  Icon,
+  Avatar
 } from '@chakra-ui/core';
 
 import Container from '../components/Container';
@@ -25,7 +26,7 @@ const Index = () => (
           spacing={8}
           justifyContent="center"
           alignItems="flex-start"
-          m="0 auto 4rem auto"
+          m={['0 auto', null, '0 auto 4rem auto']}
           maxWidth="600px"
           p={8}
         >
@@ -67,7 +68,7 @@ const Index = () => (
         alignItems="flex-start"
         m="0 auto 4rem auto"
         maxWidth="600px"
-        mt={16}
+        mt={[4, 8, 16]}
         p={8}
       >
         <Flex
@@ -154,7 +155,7 @@ const Index = () => (
             <Link
               isExternal
               fontWeight="bold"
-              href="https://jamstack.org"
+              href="https://jamstack.wtf"
               textDecoration="none"
               borderBottom="2px solid #0af5f4"
               transition="all 0.1s ease-in"
@@ -169,7 +170,6 @@ const Index = () => (
           </Text>
           <List spacing={2} mt={8} as="ol" styleType="decimal">
             <ListItem fontWeight="medium" fontSize="lg">
-              {/* Develop hybrid applications. */}
               Build dynamic applications that become static.
             </ListItem>
             <ListItem fontWeight="medium" fontSize="lg">
@@ -185,7 +185,6 @@ const Index = () => (
             possible and what you can achieve with these technologies." –– José
             Llamas
           </Text>
-
           <Flex
             color="gray.900"
             mt={2}
@@ -197,6 +196,37 @@ const Index = () => (
           >
             <Icon name="nextjs" mr={2} />
             Mastering Next.js
+          </Flex>
+          <Divider borderColor="gray.200" my={16} w="100%" />
+          <Subscribe />
+          <Flex align="center">
+            <Avatar
+              size="lg"
+              name="Lee Robinson"
+              src="https://bit.ly/33vEjhB"
+              mr={4}
+            />
+            <Box>
+              <Text color="gray.700" mt={4} fontSize="lg">
+                <b>I'm Lee Robinson</b> –– developer, writer, and the creator of
+                Mastering Next.js and React 2025.
+              </Text>
+              <Link
+                mt={2}
+                isExternal
+                href="https://jamstack.wtf"
+                textDecoration="none"
+                borderBottom="2px solid #0af5f4"
+                transition="all 0.1s ease-in"
+                fontStyle="italic"
+                _hover={{
+                  textDecoration: 'none',
+                  borderBottom: '2px solid #09DB1F'
+                }}
+              >
+                more about me &#187;
+              </Link>
+            </Box>
           </Flex>
         </Flex>
       </Stack>
