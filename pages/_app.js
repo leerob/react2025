@@ -1,8 +1,9 @@
-import React from 'react';
-import NextApp from 'next/app';
+import React, { useEffect } from 'react';
+import Router from 'next/router';
 import { Global, css } from '@emotion/core';
 import { DefaultSeo } from 'next-seo';
 import { ThemeProvider, CSSReset } from '@chakra-ui/core';
+import * as Fathom from 'fathom-client';
 
 import theme from '../styles/theme';
 import SEO from '../next-seo.config';
@@ -34,19 +35,27 @@ const GlobalStyle = ({ children }) => (
   </>
 );
 
-class App extends NextApp {
-  render() {
-    const { Component } = this.props;
+Router.events.on('routeChangeComplete', () => {
+  Fathom.trackPageview();
+});
 
-    return (
-      <ThemeProvider theme={theme}>
-        <GlobalStyle>
-          <DefaultSeo {...SEO} />
-          <Component />
-        </GlobalStyle>
-      </ThemeProvider>
-    );
-  }
-}
+const App = ({ Component, pageProps }) => {
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'production') {
+      Fathom.load();
+      Fathom.setSiteId('YBUASOVW');
+      Fathom.trackPageview();
+    }
+  }, []);
+
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyle>
+        <DefaultSeo {...SEO} />
+        <Component {...pageProps} />
+      </GlobalStyle>
+    </ThemeProvider>
+  );
+};
 
 export default App;

@@ -36,6 +36,7 @@
     "@emotion/core": "10.0.28",
     "@emotion/styled": "10.0.27",
     "emotion-theming": "10.0.27",
+    "fathom-client": "^2.0.3",
     "next": "9.4.0",
     "next-seo": "4.4.0",
     "react": "16.13.1",
