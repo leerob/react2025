@@ -26,6 +26,11 @@ class MyDocument extends Document {
           />
           <link rel="preconnect" href="https://pbs.twimg.com" crossOrigin="" />
           <link
+            rel="preconnect"
+            href="https://cdn.usefathom.com"
+            crossOrigin=""
+          />
+          <link
             rel="preload"
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
             as="style"
