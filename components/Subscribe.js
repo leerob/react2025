@@ -8,7 +8,6 @@ import {
   Button,
   useToast
 } from '@chakra-ui/core';
-import * as Fathom from 'fathom-client';
 
 const Subscribe = () => {
   const [loading, setLoading] = useState(false);
@@ -44,7 +43,7 @@ const Subscribe = () => {
       return;
     }
 
-    Fathom.trackGoal('MW8HUEX3', 0);
+    window.fathom.trackGoal('MW8HUEX3', 0);
     inputEl.current.value = '';
     toast({
       title: 'Success!',

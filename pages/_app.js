@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
-import Router from 'next/router';
 import { Global, css } from '@emotion/core';
 import { DefaultSeo } from 'next-seo';
 import { ThemeProvider, CSSReset } from '@chakra-ui/core';
-import * as Fathom from 'fathom-client';
 
 import theme from '../styles/theme';
 import SEO from '../next-seo.config';
@@ -35,16 +33,17 @@ const GlobalStyle = ({ children }) => (
   </>
 );
 
-Router.events.on('routeChangeComplete', () => {
-  Fathom.trackPageview();
-});
-
 const App = ({ Component, pageProps }) => {
   useEffect(() => {
     if (process.env.NODE_ENV === 'production') {
-      Fathom.load();
-      Fathom.setSiteId('YBUASOVW');
-      Fathom.trackPageview();
+      const tracker = window.document.createElement('script');
+      const firstScript = window.document.querySelectorAll('script')[0];
+
+      tracker.defer = true;
+      tracker.setAttribute('site', 'YBUASOVW');
+      tracker.setAttribute('spa', 'auto');
+      tracker.src = 'https://cdn.usefathom.com/script.js';
+      firstScript.parentNode.insertBefore(tracker, firstScript);
     }
   }, []);
 
