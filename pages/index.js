@@ -1,4 +1,5 @@
 import React from 'react';
+import { TwitterTweetEmbed } from 'react-twitter-embed';
 import {
   Heading,
   Flex,
@@ -16,6 +17,18 @@ import {
 
 import Container from '../components/Container';
 import Subscribe from '../components/Subscribe';
+
+const Tweet = ({ tweetId }) => (
+  <Box w="full">
+    <TwitterTweetEmbed
+      tweetId={tweetId}
+      options={{
+        conversation: 'none',
+        width: '100%'
+      }}
+    />
+  </Box>
+);
 
 const Index = () => (
   <Box as="main">
@@ -316,6 +329,11 @@ const Index = () => (
             Mastering Next.js
           </Flex>
           <Divider borderColor="gray.200" my={16} w="100%" />
+          <Tweet tweetId="1262266180573806597" />
+          <Tweet tweetId="1262312140586618882" />
+          <Tweet tweetId="1262274160018915328" />
+          <Tweet tweetId="1262300081841008646" />
+          <Divider borderColor="gray.200" my={8} w="100%" />
           <Subscribe />
           <Flex align="center">
             <Avatar
@@ -325,7 +343,7 @@ const Index = () => (
               mr={4}
             />
             <Box>
-              <Text color="gray.700" mt={4} fontSize="lg">
+              <Text color="gray.700" mt={4} fontSize={['md', 'lg']}>
                 <b>I'm Lee Robinson</b> –– developer, writer, and the creator of
                 Mastering Next.js and React 2025.
               </Text>
