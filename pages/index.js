@@ -19,7 +19,7 @@ import Container from '../components/Container';
 import Subscribe from '../components/Subscribe';
 
 const Tweet = ({ tweetId }) => (
-  <Box w="full">
+  <Box w="full" minW="300px">
     <TwitterTweetEmbed
       tweetId={tweetId}
       options={{
@@ -343,7 +343,7 @@ const Index = () => (
               mr={4}
             />
             <Box>
-              <Text color="gray.700" mt={4} fontSize={['md', 'lg']}>
+              <Text color="gray.700" mt={4} fontSize={['sm', 'lg']}>
                 <b>I'm Lee Robinson</b> –– developer, writer, and the creator of
                 Mastering Next.js and React 2025.
               </Text>
@@ -355,6 +355,7 @@ const Index = () => (
                 borderBottom="2px solid #0af5f4"
                 transition="all 0.1s ease-in"
                 fontStyle="italic"
+                fontSize={['sm', 'md']}
                 _hover={{
                   textDecoration: 'none',
                   borderBottom: '2px solid #09DB1F'
