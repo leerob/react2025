@@ -14,9 +14,10 @@ class MyDocument extends Document {
             content="/favicons/browserconfig.xml"
             name="msapplication-config"
           />
-          <meta name="yandex-verification" content="TODO" />
-          <meta name="msvalidate.01" content="TODO" />
-          <meta content="TODO" name="google-site-verification" />
+          <meta
+            name="google-site-verification"
+            content="j4wWPtqfUsZE9Qr7K-JwNel387630FIXkKnzCo95W2s"
+          />
           <link href="/favicons/favicon.ico" rel="shortcut icon" />
           <link href="/favicons/site.webmanifest" rel="manifest" />
           <link
