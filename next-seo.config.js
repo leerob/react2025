@@ -1,4 +1,4 @@
-const title = 'React 2025 – Build applications from the the future, today.';
+const title = 'React 2025 – Build applications from the future, today.';
 const description =
   'Learn how to build and deploy a modern Jamstack application using the most popular open-source software.';
 
