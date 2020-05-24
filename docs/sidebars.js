@@ -3,6 +3,7 @@ module.exports = {
     Introduction: [
       'welcome',
       'product-overview',
+      'before-starting',
       'getting-started',
       'deploying'
     ],
