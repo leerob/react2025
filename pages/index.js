@@ -12,7 +12,8 @@ import {
   Divider,
   Link,
   Icon,
-  Avatar
+  Avatar,
+  Badge
 } from '@chakra-ui/core';
 
 import Container from '../components/Container';
@@ -333,6 +334,179 @@ const Index = () => (
           <Tweet tweetId="1262312140586618882" />
           <Tweet tweetId="1262274160018915328" />
           <Tweet tweetId="1262300081841008646" />
+          <Divider borderColor="gray.200" my={16} w="100%" />
+          <Heading
+            letterSpacing="tight"
+            as="h2"
+            size="lg"
+            fontWeight="bold"
+            id="pre-order"
+          >
+            Let's get started.
+          </Heading>
+          <Text color="gray.700" mt={4} mb={8}>
+            Pre-order today and get <b>$50 off</b> the launch price +
+            <b> free access </b>
+            to&nbsp;
+            <Link
+              isExternal
+              fontWeight="bold"
+              href="https://masteringnextjs.com"
+              textDecoration="none"
+              borderBottom="2px solid #0af5f4"
+              transition="all 0.1s ease-in"
+              _hover={{
+                textDecoration: 'none',
+                borderBottom: '2px solid #09DB1F'
+              }}
+            >
+              Mastering Next.js
+            </Link>
+            &nbsp;(a <b>$200</b> value).
+          </Text>
+          <Link
+            isExternal
+            href="https://gumroad.com/l/TifxZ/pre-order"
+            textDecoration="none"
+            transition="all 0.1s ease-in"
+            borderRadius={8}
+            mb={4}
+            w="full"
+            _hover={{
+              textDecoration: 'none',
+              boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.05)'
+            }}
+          >
+            <Box
+              borderRadius={8}
+              w="full"
+              border="1px solid"
+              borderColor="gray.200"
+              p={4}
+            >
+              <Badge variantColor="green" fontSize="md" mb={4}>
+                $249
+                <Box textDecoration="line-through" display="inline" ml={1}>
+                  ($299)
+                </Box>
+              </Badge>
+              <Heading
+                letterSpacing="tight"
+                as="h5"
+                size="lg"
+                fontWeight="bold"
+              >
+                Community
+              </Heading>
+              <List spacing={1} mt={4}>
+                <ListItem fontSize="lg" alignItems="center" display="flex">
+                  <ListIcon icon="check" color="green.500" />
+                  Live streams building the course
+                </ListItem>
+                <ListItem fontSize="lg" alignItems="center" display="flex">
+                  <ListIcon icon="check" color="green.500" />
+                  Access to private community
+                </ListItem>
+                <ListItem fontSize="lg" alignItems="center" display="flex">
+                  <ListIcon icon="check" color="green.500" />
+                  Complete video course
+                </ListItem>
+                <ListItem fontSize="lg" alignItems="center" display="flex">
+                  <ListIcon icon="check" color="green.500" />
+                  Written tutorial
+                </ListItem>
+                <ListItem fontSize="lg" alignItems="center" display="flex">
+                  <ListIcon icon="check" color="green.500" />
+                  Source code
+                </ListItem>
+              </List>
+            </Box>
+          </Link>
+          <Link
+            isExternal
+            href="https://gumroad.com/l/TifxZ/pre-order"
+            textDecoration="none"
+            transition="all 0.1s ease-in"
+            borderRadius={8}
+            mb={4}
+            w="full"
+            _hover={{
+              textDecoration: 'none',
+              boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.05)'
+            }}
+          >
+            <Box
+              borderRadius={8}
+              w="full"
+              border="1px solid"
+              borderColor="gray.200"
+              p={4}
+            >
+              <Badge fontSize="md" mb={4}>
+                $99
+                <Box textDecoration="line-through" display="inline" ml={1}>
+                  ($149)
+                </Box>
+              </Badge>
+              <Heading
+                letterSpacing="tight"
+                as="h5"
+                size="lg"
+                fontWeight="bold"
+              >
+                Premium
+              </Heading>
+              <List spacing={1} mt={4}>
+                <ListItem fontSize="lg">-> Complete video course</ListItem>
+                <ListItem fontSize="lg">-> Written tutorial</ListItem>
+                <ListItem fontSize="lg">-> Source code</ListItem>
+              </List>
+            </Box>
+          </Link>
+          <Link
+            isExternal
+            href="https://gumroad.com/l/TifxZ/pre-order"
+            textDecoration="none"
+            transition="all 0.1s ease-in"
+            borderRadius={8}
+            mb={4}
+            w="full"
+            _hover={{
+              textDecoration: 'none',
+              boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.05)'
+            }}
+          >
+            <Box
+              borderRadius={8}
+              w="full"
+              border="1px solid"
+              borderColor="gray.200"
+              p={4}
+            >
+              <Badge fontSize="md" mb={4}>
+                $39
+                <Box textDecoration="line-through" display="inline" ml={1}>
+                  ($89)
+                </Box>
+              </Badge>
+              <Heading
+                letterSpacing="tight"
+                as="h5"
+                size="lg"
+                fontWeight="bold"
+              >
+                Starter
+              </Heading>
+              <List spacing={1} mt={4}>
+                <ListItem fontSize="lg" alignItems="center" display="flex">
+                  -> Written tutorial
+                </ListItem>
+                <ListItem fontSize="lg" alignItems="center" display="flex">
+                  -> Source code
+                </ListItem>
+              </List>
+            </Box>
+          </Link>
           <Divider borderColor="gray.200" my={8} w="100%" />
           <Subscribe />
           <Flex align="center">

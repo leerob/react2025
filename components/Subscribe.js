@@ -6,6 +6,8 @@ import {
   Input,
   InputRightElement,
   Button,
+  Text,
+  Link,
   useToast
 } from '@chakra-ui/core';
 
@@ -84,6 +86,23 @@ const Subscribe = () => {
           </Button>
         </InputRightElement>
       </InputGroup>
+      <Text fontSize="xs" mt={2} color="gray.700">
+        Or&nbsp;
+        <Link
+          fontWeight="bold"
+          href="#pre-order"
+          textDecoration="none"
+          borderBottom="2px solid #0af5f4"
+          transition="all 0.1s ease-in"
+          _hover={{
+            textDecoration: 'none',
+            borderBottom: '2px solid #09DB1F'
+          }}
+        >
+          pre-order now
+        </Link>
+        &nbsp;if you're already convinced!
+      </Text>
     </Box>
   );
 };
