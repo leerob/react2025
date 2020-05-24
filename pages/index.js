@@ -240,10 +240,10 @@ const Index = () => (
             </ListItem>
           </List>
           <Text color="gray.700" mt={16} fontStyle="italic" fontSize="lg">
-            "Not only did I enjoy your Mastering Next.js course, but I learned
-            many things entirely new to me. This course opened my eyes to what's
-            possible and what you can achieve with these technologies." –– José
-            Llamas
+            "Not only did I enjoy your Mastering Next.js course, but I
+            <b> learned many things entirely new to me</b>. This course opened
+            my eyes to what's possible and what you can achieve with these
+            technologies." –– José Llamas
           </Text>
           <Flex
             color="gray.900"
@@ -316,12 +316,11 @@ const Index = () => (
             </ListItem>
           </List>
           <Text color="gray.700" mt={16} fontStyle="italic" fontSize="lg">
-            "Lee is an awesome teacher and I really enjoyed taking this course.
-            It not only touches on the core of Next.js, but also broader
-            concepts like TypeScript, testing and authentication. Videos are
-            great quality and good length. I would definitely recommend to both
-            newcomers to Next.js as well as to people who want to sharpen
-            themselves on the Next.js fundamentals." –– Maurits Misana
+            "<b>Lee is an awesome teacher </b> and I really enjoyed taking this
+            course. It not only touches on the core of Next.js, but also broader
+            concepts like TypeScript, testing and authentication.
+            <b> Videos are great quality and good length</b>. I would definitely
+            recommend the course." –– Maurits Misana
           </Text>
           <Flex
             color="gray.900"
