@@ -119,7 +119,25 @@ When a user signs out, or the component is no longer being used, we unsubscribe 
 
 The `useAuth` React Hook allows us to sign in, sign out, and fetch information about the user. Let's test this out to ensure it's set up correctly.
 
-Modify the file `pages/index.js` to include the following code.
+First, we need to wrap our application with `AuthProvider` to access the context.
+
+**`pages/_app_.js`**
+
+```javascript
+import { AuthProvider } from '../util/auth';
+
+const App = ({ Component, pageProps }) => {
+  return (
+    <AuthProvider>
+      <Component {...pageProps} />
+    </AuthProvider>
+  );
+};
+
+export default App;
+```
+
+Then, modify the file `pages/index.js` to include the following code.
 
 **`pages/index.js`**
 

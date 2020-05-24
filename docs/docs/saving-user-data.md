@@ -17,10 +17,6 @@ import firebase from './firebase';
 
 const firestore = firebase.firestore();
 
-export function useUser(uid) {
-  return useQuery(uid && firestore.collection('users').doc(uid));
-}
-
 export function updateUser(uid, data) {
   return firestore.collection('users').doc(uid).update(data);
 }

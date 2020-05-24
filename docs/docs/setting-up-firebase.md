@@ -2,12 +2,14 @@
 title: Setting Up Firebase
 ---
 
-[Firebase](https://firebase.google.com/) is the industry standard [NoSQL](https://en.wikipedia.org/wiki/NoSQL) platform. It has a sufficient user/permissions system and an easy interface for non-technical users. Plus, it mention it has a generous [free tier](https://firebase.google.com/pricing).
+[Firebase](https://firebase.google.com/) is a Backend-as-a-Service (BaaS) built on Google Cloud.
+It's an excellent way to build and grow applications. It's interface is easy to navigate and it has a generous [free tier](https://firebase.google.com/pricing).
+Firebase ([Firestore](https://firebase.google.com/products/firestore/)) is categorized as a [NoSQL](https://en.wikipedia.org/wiki/NoSQL) database, which stores data in JSON-like documents.
 
 We'll utilize two features of Firebase in this course.
 
-- **Authentication** – We _do not_ want to allow anonomous feedback to prevent bad actors. Thus, we will require logging in with a social media account. Firebase Authentication makes it easy to add login support for Facebook, Google, GitHub, and more.
-- **Database** – Firebase's [Cloud Firestore](https://firebase.google.com/products/firestore/) will allow us to easily save information about users, pages, and feedback.
+- **Authentication** – In this application, we will require logging in with a social media account. Firebase Authentication makes it easy to add login support for Facebook, Google, GitHub, and more.
+- **Database** – Firestore will allow us to easily save information about users, pages, and more.
 
 ### Create Database
 
