@@ -11,6 +11,12 @@ import {
   useToast
 } from '@chakra-ui/core';
 
+const trackGoal = (id) => {
+  if (window.fathom) {
+    window.fathom.trackGoal(id, 0);
+  }
+};
+
 const Subscribe = () => {
   const [loading, setLoading] = useState(false);
   const inputEl = useRef(null);
@@ -45,7 +51,7 @@ const Subscribe = () => {
       return;
     }
 
-    window.fathom.trackGoal('MW8HUEX3', 0);
+    trackGoal('MW8HUEX3');
     inputEl.current.value = '';
     toast({
       title: 'Success!',
@@ -89,6 +95,7 @@ const Subscribe = () => {
       <Text fontSize="xs" mt={2} color="gray.700">
         Or&nbsp;
         <Link
+          onClick={() => trackGoal('5DZENR7D')}
           fontWeight="bold"
           href="#pre-order"
           textDecoration="none"

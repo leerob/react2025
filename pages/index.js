@@ -19,6 +19,12 @@ import {
 import Container from '../components/Container';
 import Subscribe from '../components/Subscribe';
 
+const trackGoal = (id) => {
+  if (window.fathom) {
+    window.fathom.trackGoal(id, 0);
+  }
+};
+
 const Tweet = ({ tweetId }) => (
   <Box w="full" minW="300px">
     <TwitterTweetEmbed
@@ -370,6 +376,7 @@ const Index = () => (
             textDecoration="none"
             transition="all 0.1s ease-in"
             borderRadius={8}
+            onClick={() => trackGoal('OHBXSGKY')}
             mb={4}
             w="full"
             _hover={{
@@ -428,6 +435,7 @@ const Index = () => (
             textDecoration="none"
             transition="all 0.1s ease-in"
             borderRadius={8}
+            onClick={() => trackGoal('GWFYT6R7')}
             mb={4}
             w="full"
             _hover={{
@@ -469,6 +477,7 @@ const Index = () => (
             textDecoration="none"
             transition="all 0.1s ease-in"
             borderRadius={8}
+            onClick={() => trackGoal('4MXS33EJ')}
             mb={4}
             w="full"
             _hover={{
