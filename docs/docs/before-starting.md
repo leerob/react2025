@@ -20,7 +20,19 @@ You can also use a [Thesaurus](https://www.thesaurus.com/) to find related works
 
 Long story short: if you can't design, hire a designer. If you can't hire a designer, consider using a complete [design framework](https://material.io/design), template, or visual editor like [Divjoy](https://divjoy.com/).
 
-The design of your product is more important than you realize. Aim for simplicity.
+**The design of your product is more important than you realize.** Aim for simplicity.
+
+Here's the design process I took for Fast Feedback. First, I start with [Excalidraw](https://excalidraw.com/) to quickly generate low-fidelity mockups.
+
+![Excalidraw](/img/excalidraw.png)
+
+Then, I transition to high-fidelity with [Figma](https://www.figma.com/).
+
+![Figma](/img/figma.png)
+
+Finally, I use [OpenChakra]() to turn mockups into real React code with [Chakra UI](https://chakra-ui.com/).
+
+![Open Chakra](/img/openchakra.png)
 
 ## Domain
 

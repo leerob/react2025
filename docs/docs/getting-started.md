@@ -2,12 +2,17 @@
 title: Getting Started
 ---
 
+Let's get started building our application!
+If you haven't used Next.js before, you might need to update your version of Node.js.
+
 ### System Requirements
 
 - [Node.js 10.13](https://nodejs.org/en/) or later
 - MacOS, Windows (including WSL), and Linux are supported
 
 ### Create Application
+
+In this course, I will use `yarn` instead of `npm`. You are free to use whichever you prefer.
 
 ```bash
 npm init next-app
