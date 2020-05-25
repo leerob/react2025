@@ -14,28 +14,22 @@ module.exports = {
       'saving-user-data',
       'firebase-conclusion'
     ],
-    '2: Leaving Feedback': ['firebase-admin', 'chakra-ui', 'dynamic-routing'],
-    // '3: User Dashboard': [
-    //   'setting-up-firebase',
-    //   'adding-firebase-to-app',
-    //   'use-auth',
-    //   'saving-user-data',
-    //   'firebase-conclusion'
-    // ],
-    // '4: Accepting Payments': [
-    //   'setting-up-firebase',
-    //   'adding-firebase-to-app',
-    //   'use-auth',
-    //   'saving-user-data',
-    //   'firebase-conclusion'
-    // ],
-    // '5: Embeded View': [
-    //   'setting-up-firebase',
-    //   'adding-firebase-to-app',
-    //   'use-auth',
-    //   'saving-user-data',
-    //   'firebase-conclusion'
-    // ],
+    '2: Leaving Feedback': [
+      'firebase-admin',
+      'chakra-ui',
+      'dynamic-routing',
+      'absolute-imports'
+    ],
+    '3: User Dashboard': [
+      'creating-the-dashboard',
+      'empty-state',
+      'loading-skeleton',
+      'swr'
+    ],
+    '4: Accepting Payments': ['payments'],
+    '5: Embedded View': ['embedded-view'],
+    '6: Logging & Analytics': ['logging', 'analytics'],
+    '7: Launching': ['launching'],
     'Style Guide': ['style-guide']
   }
 };

@@ -15,8 +15,6 @@ If you haven't used Next.js before, you might need to update your version of Nod
 In this course, I will use `yarn` instead of `npm`. You are free to use whichever you prefer.
 
 ```bash
-npm init next-app
-# or
 yarn create next-app
 ```
 
@@ -27,11 +25,4 @@ Inside our `package.json`, we now have access to start the application.
 - `build` - Runs `next build` which builds the application for production usage.
 - `start` - Runs `next start` which starts a Next.js production server.
 
-Run `npm run dev` to view the application at http://localhost:3000.
-
-### Next.js Features
-
-- Automatic compilation and bundling (with Webpack and Babel)
-- React Fast Refresh
-- Static generation and server-side rendering of `./pages/`
-- Static file serving. `./public/` is mapped to`/`
+Run `yarn dev` to view the application at `http://localhost:3000`.
