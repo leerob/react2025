@@ -23,7 +23,6 @@ Specifically, `private_key` and `client_email`.
 ```
 FIREBASE_PRIVATE_KEY=
 FIREBASE_CLIENT_EMAIL=
-
 ```
 
 **`.env.local`**

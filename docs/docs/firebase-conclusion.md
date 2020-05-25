@@ -2,7 +2,7 @@
 title: Conclusion
 ---
 
-Congrats, we made it! ✨ Let's review this section.
+**Congrats, we made it!** ✨ Let's review this section.
 
 1. We created a new project in Firebase, setting up authentication and a database.
 2. We created a GitHub application to allow users to sign in to our application.

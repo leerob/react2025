@@ -28,7 +28,24 @@ yarn global add vercel
 This allows you to run `vercel` or `vc` to link your project and deploy. Let's do that now and deploy our create-next-app application.
 
 ```bash
-TODO
+➜  your-repo git:(master) vc
+Vercel CLI 19.0.1
+🔍  Inspect: https://vercel.com/user/project/4ojo34wgk [6s]
+✅  Preview: https://project.user.now.sh [copied to clipboard] [38s]
+📝  To deploy to production (yourdomain.com +1), run `vc --prod`
 ```
 
 You should now be able to visit the URL from the console output and see your site deployed live.
+
+## GitHub Integration
+
+The Vercel GitHub integration allows you push code to your repo and deploy projects automatically – zero configuration required.
+
+![Vercel GitHub Integration](/img/vercel-github.png)
+
+After [installing the GitHub application](https://vercel.com/github), you will get:
+
+- **A URL for every PR** – Every pull request gets a fixed deployment URL that stays updated with changes. Share once with your team, and let them directly track changes without asking for new URLs again.
+- **A URL for Every Commit** – Every commit gets its own URL. Need to quickly test what changed in a commit?Vercel for GitHub makes it easy.
+
+Updates to master instantly get aliased to your production domain name, thanks to automatic aliasing. If you made a mistake and need to revert, simply push a commit reverting changes and it will perform an instant rollback. Your site will be back to the previous state before you can refresh to verify it.

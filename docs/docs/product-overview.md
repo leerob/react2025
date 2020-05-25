@@ -11,7 +11,7 @@ When brainstorming product ideas for the course, I needed something I'd enjoy cr
 
 Blogs are an essential part of the internet. They're an open dialouge between the author and their audience. However, it's increasingly becoming one-way communciation. Adding comments to your blog is difficult, especially with the rise of static-site generators like Next.js and Gatsby.
 
-Most people using these frameworks _want_ comments, but they don't want the overhead of building the commeting system themselves. To add comments, you need to consider:
+Most people using these frameworks _want_ comments, but they don't want the overhead of building the commenting system themselves. To add comments, you need to consider:
 
 - Do I want to allow _anyone_ to comment? Should people login?
 - What if people abuse the system? How can I moderate?

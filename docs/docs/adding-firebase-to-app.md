@@ -40,11 +40,15 @@ NEXT_PUBLIC_FIREBASE_PROJECT_ID=your-value-here
 
 The `NEXT_PUBLIC_` prefix [makes the secrets available](https://nextjs.org/docs/basic-features/environment-variables#exposing-environment-variables) in our client-side Next.js application.
 
-**Example:** Next.js will replace `process.env.NEXT_PUBLIC_FIREBASE_API_KEY` with its value `your-value-here`.
+:::note
+
+For example, Next.js will replace `process.env.NEXT_PUBLIC_FIREBASE_API_KEY` with its value `your-value-here`.
+
+:::
 
 ### Firebase Client
 
-We can now securely connect to Firebase. Create a new file `util/firebase.js` to initialize the application and establish a connection.
+We can now securely connect to Firebase. Create a new file `util/firebase.js` to initialize the application and establish a connection. We only need to establish the connection once, hence the `if` statement.
 
 **`util/firebase.js`**
 
