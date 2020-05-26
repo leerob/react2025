@@ -26,7 +26,7 @@ module.exports = {
       'loading-skeleton',
       'swr'
     ],
-    '4: Accepting Payments': ['payments'],
+    '4: Accepting Payments': ['pricing', 'stripe', 'account-settings'],
     '5: Embedded View': ['embedded-view'],
     '6: Logging & Analytics': ['logging', 'analytics'],
     '7: Launching': ['launching'],

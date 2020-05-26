@@ -1,5 +1,0 @@
----
-title: Payments
----
-
-TODO

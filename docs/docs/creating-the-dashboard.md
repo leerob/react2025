@@ -4,6 +4,8 @@ title: Creating The Dashboard
 
 Let's begin creating the user dashboard for [Fast Feedback](/product-overview). This dashboard will allow users to manage their sites, as well as their own feedback they've left.
 
+![Dashboard Architecture](/img/admin-architecture.png)
+
 All the different pages inside the admin dashboard should share the same base layout.
 Let's create a shared layout component that all dashboard pages can re-use. This should contain the top navigation, as well as the current user that's logged in. This "shell" will wrap other components. For example:
 
