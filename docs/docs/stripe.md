@@ -116,3 +116,17 @@ Stripe provides [test cards](https://stripe.com/docs/testing) to verify your pay
 If the payment was succesful, Stripe should redirect the user back to your `success_url` parameter (`/account`). You should also see the subscription listed as a new entry on your [Stripe dashboard](https://dashboard.stripe.com/subscriptions).
 
 ![Stripe Dashboard](/img/stripe.png)
+
+### Subscriptions
+
+- https://stripe.com/docs/billing/subscriptions/fixed-price
+- https://github.com/stripe-samples/nextjs-typescript-react-stripe-js
+- https://stripe.com/docs/payments/checkout/set-up-a-subscription
+
+More, newer links. [Stripe Billing](https://stripe.com/billing).
+
+- https://dashboard.stripe.com/test/dashboard
+- https://stripe.com/docs/billing/subscriptions/integrating-self-serve-portal
+- https://stripe.com/docs/payments/checkout/client-subscription
+
+![Stripe self-serve dashboard](/img/stripe-self-service.png)

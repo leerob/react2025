@@ -2,35 +2,28 @@
 title: Pricing
 ---
 
-[Fast Feedback](/product-overview) has three pricing tiers.
+[Fast Feedback](/product-overview) has two pricing tiers.
 
 ### Pricing Tiers
 
-#### Free
-
-- ✅ **Unlimited** sites
-- ✅ 5 feedback per site
-- 🚫 No moderation tools
-- 🚫 No custom styles
-
 #### Starter
-
-_$5/month (or $50/year)_
-
-- ✅ **Unlimited** sites
-- ✅ **Unlimited** feedback for sites
-- ✅ Moderation tools
-- ✅ Custom styles
-
-#### Premium
 
 _$10/month (or $100/year)_
 
-- ✅ **Unlimited** sites
-- ✅ **Unlimited** feedback for sites
-- ✅ Moderation tools
-- ✅ Custom styles
-- ✅ Webhooks
+- ✅ &nbsp;1 site
+- ✅ &nbsp;Up to **1,000** feedback events
+- ✅ &nbsp;Moderation tools
+- 🚫 &nbsp;No custom styles
+
+#### Premium
+
+_$50/month (or $500/year)_
+
+- ✅ &nbsp;**Unlimited** sites
+- ✅ &nbsp;**Unlimited** feedback for sites
+- ✅ &nbsp;Moderation tools
+- ✅ &nbsp;Custom styles
+- ✅ &nbsp;Priority support
 
 ### Accepting Payments
 

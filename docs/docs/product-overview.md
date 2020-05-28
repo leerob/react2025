@@ -48,15 +48,17 @@ We're able to use **no JavaScript** by serving a static site through the `iframe
 
 **User**
 
-| Name        |   Type   |                 Description |
-| :---------- | :------: | --------------------------: |
-| `createdAt` | `String` |               ISO Timestamp |
-| `email`     | `String` |     Email from social login |
-| `name`      | `String` |      Name from social login |
-| `photoUrl`  | `String` |    Avatar from social login |
-| `plan`      | `String` |    (Free, Starter, Premium) |
-| `provider`  | `String` | Which social login was used |
-| `uid`       | `String` |      UID from Firebase Auth |
+| Name               |   Type   |                  Description |
+| :----------------- | :------: | ---------------------------: |
+| `createdAt`        | `String` |                ISO Timestamp |
+| `email`            | `String` |      Email from social login |
+| `name`             | `String` |       Name from social login |
+| `photoUrl`         | `String` |     Avatar from social login |
+| `plan`             | `String` |           (Starter, Premium) |
+| `provider`         | `String` |  Which social login was used |
+| `uid`              | `String` |       UID from Firebase Auth |
+| `stripeCustomerId` | `String` | Linking customer with Stripe |
+| `status`           | `String` | (Active, Suspended, Deleted) |
 
 **Feedback**
 

@@ -7,6 +7,7 @@ module.exports = {
       'getting-started',
       'deploying'
     ],
+    '0: Fundamentals': ['next', 'data-fetching'],
     '1: Hello Firebase': [
       'setting-up-firebase',
       'adding-firebase-to-app',
@@ -29,7 +30,7 @@ module.exports = {
     '4: Accepting Payments': ['pricing', 'stripe', 'account-settings'],
     '5: Embedded View': ['embedded-view'],
     '6: Logging & Analytics': ['logging', 'analytics'],
-    '7: Launching': ['launching'],
-    'Style Guide': ['style-guide']
+    '7: Testing': ['testing'],
+    '8: Launching': ['launching']
   }
 };
