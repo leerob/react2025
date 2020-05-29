@@ -76,6 +76,7 @@ Logflare automatically parses information from your serverless functions to you 
 ### Setting up the Vercel Integration
 
 TODO https://logflare.app/guides/vercel-setup
+https://www.notion.so/The-Ultimate-Guide-to-Logging-for-Next-js-and-Vercel-fe957f3adf1e4fcc9a426861b6e39075
 
 ### Adding Logs with Pino
 
