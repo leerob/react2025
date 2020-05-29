@@ -64,7 +64,6 @@ class MyDocument extends Document {
             href="/favicons/safari-pinned-tab.svg"
             rel="mask-icon"
           />
-          <script defer src="https://gumroad.com/js/gumroad.js" />
         </Head>
         <body>
           <Main />
