@@ -371,16 +371,14 @@ const Index = () => (
           </Text>
           <Link
             isExternal
-            href="https://gumroad.com/l/TifxZ/pre-order"
+            href="https://gum.co/TifxZ/pre-order"
             textDecoration="none"
             transition="all 0.1s ease-in"
             borderRadius={8}
-            onClick={() => trackGoal('OHBXSGKY')}
             mb={4}
             w="full"
             _hover={{
-              textDecoration: 'none',
-              boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.05)'
+              textDecoration: 'none'
             }}
           >
             <Box
@@ -388,7 +386,9 @@ const Index = () => (
               w="full"
               border="1px solid"
               borderColor="gray.200"
+              onClick={() => trackGoal('OHBXSGKY')}
               p={4}
+              mb={4}
             >
               <Badge variantColor="green" fontSize="md" mb={4}>
                 $249
@@ -427,27 +427,14 @@ const Index = () => (
                 </ListItem>
               </List>
             </Box>
-          </Link>
-          <Link
-            isExternal
-            href="https://gumroad.com/l/TifxZ/pre-order"
-            textDecoration="none"
-            transition="all 0.1s ease-in"
-            borderRadius={8}
-            onClick={() => trackGoal('GWFYT6R7')}
-            mb={4}
-            w="full"
-            _hover={{
-              textDecoration: 'none',
-              boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.05)'
-            }}
-          >
             <Box
               borderRadius={8}
               w="full"
               border="1px solid"
               borderColor="gray.200"
+              onClick={() => trackGoal('GWFYT6R7')}
               p={4}
+              mb={4}
             >
               <Badge fontSize="md" mb={4}>
                 $99
@@ -469,26 +456,12 @@ const Index = () => (
                 <ListItem fontSize="lg">-> Source code</ListItem>
               </List>
             </Box>
-          </Link>
-          <Link
-            isExternal
-            href="https://gumroad.com/l/TifxZ/pre-order"
-            textDecoration="none"
-            transition="all 0.1s ease-in"
-            borderRadius={8}
-            onClick={() => trackGoal('4MXS33EJ')}
-            mb={4}
-            w="full"
-            _hover={{
-              textDecoration: 'none',
-              boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.05)'
-            }}
-          >
             <Box
               borderRadius={8}
               w="full"
               border="1px solid"
               borderColor="gray.200"
+              onClick={() => trackGoal('4MXS33EJ')}
               p={4}
             >
               <Badge fontSize="md" mb={4}>
