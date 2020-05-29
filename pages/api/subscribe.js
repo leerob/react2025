@@ -23,8 +23,16 @@ export default async (req, res) => {
     );
 
     if (response.status >= 400) {
+      const text = await response.text();
+
+      if (text.includes('already subscribed')) {
+        return res.status(400).json({
+          error: `You're already subscribed to my mailing list.`
+        });
+      }
+
       return res.status(400).json({
-        error: await response.text()
+        error: text
       });
     }
 
