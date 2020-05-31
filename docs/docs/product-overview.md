@@ -7,13 +7,13 @@ In this course, we'll build [Fast Feedback](https://fastfeedback.io) – the eas
 ![Fast Feedback](/img/fastfeedback.png)
 ![Review](/img/review.png)
 
-When brainstorming product ideas for the course, I needed something I'd enjoy creating and shipping. Plus, it needed to be complex enough to handle user authentication, database storage, and payments. After iterating over a few ideas, the idea for Fast Feedback came to me.
+When brainstorming product ideas for the course, I needed something I'd enjoy creating. Plus, it needed to be complex enough to handle user authentication, database storage, and payments. After iterating on a few thoughts, the idea for [Fast Feedback](https://fastfeedback.io) came to me.
 
-Blogs are an essential part of the internet. They're an open dialouge between the author and their audience. However, it's increasingly becoming one-way communciation. Adding comments to your blog is difficult, especially with the rise of static-site generators like Next.js and Gatsby.
+Blogs are an essential part of the internet. They're an open dialogue between the author and their audience. However, it's increasingly becoming one-way communication. Adding comments to your blog is difficult, especially with the rise of static-site generators like Next.js and Gatsby.
 
 Most people using these frameworks _want_ comments, but they don't want the overhead of building the commenting system themselves. To add comments, you need to consider:
 
-- Do I want to allow _anyone_ to comment? Should people login?
+- Do I want to allow _anyone_ to comment? Should people log in?
 - What if people abuse the system? How can I moderate?
 - Will this impact the privacy of my readers?
 - Will this decrease the performance of my site?

@@ -30,7 +30,7 @@ Then, I transition to high-fidelity with [Figma](https://www.figma.com/).
 
 ![Figma](/img/figma.png)
 
-Finally, I use [OpenChakra]() to turn mockups into real React code with [Chakra UI](https://chakra-ui.com/).
+Finally, I use [OpenChakra](https://openchakra.app/) to turn mockups into real React code with [Chakra UI](https://chakra-ui.com/).
 
 ![Open Chakra](/img/openchakra.png)
 
