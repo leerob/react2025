@@ -168,3 +168,16 @@ You should now be able to sign in with GitHub and view your email address. The `
   "provider": "github.com"
 }
 ```
+
+### Deploying
+
+Let's take this opportunity to deploy our application.
+We've already set up our [environment variables](https://vercel.com/docs/v2/build-step#environment-variables) locally, but we haven't configured them for all environments. Separatation of enviornment is important because eventually we'll have a separate database for production.
+
+#### Environments
+
+- **Production** – When selected, the Environment Variable will be applied to your next Production Deployment. To create a Production Deployment, push a commit to the default branch or run `vercel --prod`.
+- **Preview** – The Environment Variable is applied to your next Preview Deployment. Preview Deployments are created when you push to a branch (for example, `my-new-feature`) or run `vercel`.
+- **Development** – The Environment Variable is for use when running your project locally, with `vercel dev` or your preferred development command. To download Development Environment Variables, run `vercel env pull`.
+
+Inside the Vercel dashboard (https://vercel.com/your-account/project/settings/general) add the Firebase environment variables. Then, deploy your application using whichever workflow you prefer (pushing a committ or though the `vercel` CLI).

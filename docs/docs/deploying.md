@@ -49,3 +49,13 @@ After [installing the GitHub application](https://vercel.com/github), you will g
 - **A URL for Every Commit** – Every commit gets its own URL. Need to quickly test what changed in a commit?Vercel for GitHub makes it easy.
 
 Updates to master instantly get aliased to your production domain name, thanks to automatic aliasing. If you made a mistake and need to revert, simply push a commit reverting changes and it will perform an instant rollback. Your site will be back to the previous state before you can refresh to verify it.
+
+### Quickstart from Template
+
+If you'd prefer not to use the command line, you can get started from the [Next.js template](https://vercel.com/import/nextjs). This will:
+
+- Create a new repository linked to your GitHub
+- Create a new project inside Vercel
+- Deploy your template to production
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/vercel/vercel/tree/master/examples/nextjs)

@@ -38,7 +38,7 @@ We can now connect to our Firebase account from both the client-side and server-
 
 ### GitHub Authentication
 
-To start, let's focus on GitHub for social authentication. Later, we can add more providers. First, we need to create a [GitHub Application](https://developer.github.com/apps/building-github-apps/creating-a-github-app/).
+To start, let's focus on GitHub for social authentication. Later, we can add more providers. First, we need to create a [GitHub OAuth Application](https://github.com/settings/applications/new).
 
 #### Enable GitHub Sign-In
 
@@ -47,19 +47,22 @@ To start, let's focus on GitHub for social authentication. Later, we can add mor
 1. Click **GitHub** and toggle the switch to enable.
 1. Copy the callback URL.
 
-#### Create GitHub App
+#### Add Authorized Domains
 
-1. In the upper-right corner of GitHub, click your profile photo, then click **Settings**.
-1. In the left sidebar, click **Developer settings**.
-1. In the left sidebar, click **GitHub Apps**.
-1. Click **New GitHub App**.
-1. In "GitHub App name", type the name of your app.
-1. Optionally, in "Description", type a description of your app that users will see.
-1. In "Homepage URL", type the full URL to your app's website. If you don't have a URL yet, you can use a valid placeholder URL.
-1. In "User authorization callback URL", paste in the URL from the Firebase Console.
-1. Disable "Active" webhook. We will not be using this.
-1. Under "User permissions", grant "Read-only" access to "Email addresses".
-1. Click **Create GitHub App**.
+By default, `localhost` is an authorized domain. As we deploy Firebase to production, we'll want to also add our domain to the list so we can log in.
+
+1. Underneath the **Sign-in providers**, click **Add domain**.
+1. Enter in the production URL for your application (e.g. fastfeedback.io)
+1. Click **Add**.
+
+#### Create GitHub OAuth App
+
+1. Start [here](https://github.com/settings/applications/new).
+1. In **Application name**, type the name of your app.
+1. In **Homepage URL**, type the full URL to your app's website. If you don't have a URL yet, you can use a valid placeholder URL.
+1. Optionally, in **Description**, type a description of your app that users will see.
+1. In **Authorization callback URL**, paste in the URL from the Firebase Console.
+1. Click **Register application**.
 1. Copy **Client ID** and **Client secret**.
 
 #### Conclusion
