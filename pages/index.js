@@ -464,9 +464,9 @@ const Index = () => (
                 Premium
               </Heading>
               <List spacing={1} mt={4}>
-                <ListItem fontSize="lg">-> Complete video course</ListItem>
-                <ListItem fontSize="lg">-> Written tutorial</ListItem>
-                <ListItem fontSize="lg">-> Source code</ListItem>
+                <ListItem fontSize="lg">→ Complete video course</ListItem>
+                <ListItem fontSize="lg">→ Written tutorial</ListItem>
+                <ListItem fontSize="lg">→ Source code</ListItem>
               </List>
             </Box>
           </Link>
@@ -507,10 +507,10 @@ const Index = () => (
               </Heading>
               <List spacing={1} mt={4}>
                 <ListItem fontSize="lg" alignItems="center" display="flex">
-                  -> Written tutorial
+                  → Written tutorial
                 </ListItem>
                 <ListItem fontSize="lg" alignItems="center" display="flex">
-                  -> Source code
+                  → Source code
                 </ListItem>
               </List>
             </Box>
