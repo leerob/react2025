@@ -350,13 +350,12 @@ const Index = () => (
             Let's get started.
           </Heading>
           <Text color="gray.700" mt={4} mb={8}>
-            Pre-order today and get <b>$50 off</b> the launch price +
-            <b> free access </b>
-            to&nbsp;
+            Pre-order today and get <b>$50 off</b> the launch price + access to
+            a&nbsp;
             <Link
               isExternal
               fontWeight="bold"
-              href="https://masteringnextjs.com"
+              href="https://youtu.be/MxR5I5_hOKk"
               textDecoration="none"
               borderBottom="2px solid #0af5f4"
               transition="all 0.1s ease-in"
@@ -365,9 +364,8 @@ const Index = () => (
                 borderBottom: '2px solid #09DB1F'
               }}
             >
-              Mastering Next.js
+              live stream.
             </Link>
-            &nbsp;(a <b>$200</b> value).
           </Text>
           <Link
             isExternal
