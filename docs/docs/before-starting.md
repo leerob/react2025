@@ -40,7 +40,7 @@ Let's be honest – you probably bought the domain name first, right? Finding a 
 
 :::note
 
-Follow [@fastfeedback](http://twitter.com/fastfeedback) on Twitter 😉
+Follow [@fastfbk](http://twitter.com/fastfbk) on Twitter 😉
 
 :::
 

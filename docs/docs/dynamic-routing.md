@@ -20,45 +20,71 @@ export default function FeedbackPage() {
 }
 ```
 
-A route like `/p/abc` would match `pages/p/[pageId].js` and provide the query parameter to the page.
+A route like `/p/abc` would match `pages/p/[pageId].js` and provide the query parameter to the page. For more information, check out the [routing docs](https://nextjs.org/docs/routing/introduction).
+
+Let's create the feedback page, which is created dynamically for each site.
+
+**`lib/db-admin.js`**
+
+```js
+export async function getAllSites() {
+  const snapshot = await db.collection('sites').get();
+
+  const sites = [];
+
+  snapshot.forEach((doc) => {
+    sites.push({ id: doc.id, ...doc.data() });
+  });
+
+  return { sites };
+}
+```
 
 **`pages/p/[pageId].js`**
 
 ```js
 import { useRouter } from 'next/router';
 
-import Feedback from '../../components/Feedback';
 import { useAuth } from '../../util/auth';
-import { createFeedback } from '../../util/db';
 import { getAllFeedback, getAllPages } from '../../util/db-admin';
-import FeedbackLink from '../../components/FeedbackLink';
 
 export async function getStaticProps(context) {
-  const pageId = context.params.pageId;
-  const result = await getAllFeedback(pageId);
+  const siteId = context.params.siteId;
+  const { feedback } = await getAllFeedback(siteId);
 
   return {
     props: {
-      initialFeedback: result.feedback
-    }
+      initialFeedback: feedback
+    },
+    unstable_revalidate: 1
   };
 }
 
 export async function getStaticPaths() {
-  const result = await getAllPages();
-  const paths = result.pages.map((page) => ({
-    params: { pageId: page.id.toString() }
+  const { sites } = await getAllSites();
+  const paths = sites.map((site) => ({
+    params: {
+      siteId: site.id.toString()
+    }
   }));
 
   return {
     paths,
-    fallback: false
+    fallback: true
   };
 }
 
-export default function FeedbackPage({ initialFeedback }) {
+const FeedbackPage = ({ initialFeedback }) => {
   const router = useRouter();
 
   return <Box>Page ID: ${router.query.pageId}</Box>;
-}
+};
+
+export default FeedbackPage;
 ```
+
+Let's break down what's happening here.
+
+1. We use `getStaticProps` to fetch all the feedback for the site, given the `siteId` forwarded by the dynamic route. We forward that information to the component via a `prop`.
+2. We use `getStaticPaths` to create a page for _each_ site. If a page has not been created for a site (for example, a brand new site) and the user visits the route, we should generate the site on the fly. This is controlled by the [fallback value](https://nextjs.org/docs/basic-features/data-fetching#the-fallback-key-required) of `true`.
+3. We define a revalidation period of one second with `unstable_revalidate`. Every feedback page is built statically and build time. Then, when a request comes in after the revalidation period, `getStaticProps` is re-ran behind the scenes. If it completes successfully, the page is replaced and updated in the cache. This ensures you never have downtime and always serve a static HTML file.

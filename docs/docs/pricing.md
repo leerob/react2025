@@ -40,3 +40,10 @@ Checkout saves you a lot of time providing some great features:
 - **Customization and branding**—Customizable buttons and background color
 - **Fraud and compliance**—Simplified PCI compliance and [SCA-ready](https://stripe.com/docs/strong-customer-authentication)
 - **Additional features**—Collect addresses, send email receipts, and more
+
+We'll also use [Stripe Customer Portral](https://stripe.com/docs/billing/subscriptions/customer-portal). The portal provides subscription and billing management features that allow your customers to:
+
+- Update subscriptions, including upgrading and downgrading their subscriptions
+- Cancel subscriptions, immediately or at the end of a billing period
+- Update payment methods like adding and removing cards
+- View billing history and download invoices

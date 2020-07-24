@@ -53,7 +53,7 @@ By default, `localhost` is an authorized domain. As we deploy Firebase to produc
 
 1. Underneath the **Sign-in providers**, click **Add domain**.
 1. Enter in the production URL for your application (e.g. fastfeedback.io)
-1. Enter in the URL for your Vercel preview deploys -> `now.sh`
+1. Enter in the URL for your Vercel preview deploys -> `vercel.app`
 1. Click **Add**.
 
 #### Create GitHub OAuth App

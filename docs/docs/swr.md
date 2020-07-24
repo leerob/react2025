@@ -94,41 +94,47 @@ Once the data finishes loading, we want to display a list of sites inside a tabl
 
 ```js
 import React from 'react';
+import NextLink from 'next/link';
 import { Box, Link } from '@chakra-ui/core';
+import { parseISO, format } from 'date-fns';
+
 import { Table, Tr, Th, Td } from './Table';
-import { format, parseISO } from 'date-fns';
 
 const SiteTable = ({ sites }) => {
   return (
-    <Table>
-      <thead>
-        <Tr>
-          <Th>Name</Th>
-          <Th>Site Link</Th>
-          <Th>Feedback Link</Th>
-          <Th>Date Added</Th>
-          <Th>{''}</Th>
-        </Tr>
-      </thead>
-      <tbody>
-        {sites.map((site) => (
-          <Box as="tr" key={site.id}>
-            <Td fontWeight="medium">
-              <Link href={`/site/${site.id}`}>{site.name}</Link>
-            </Td>
-            <Td>
-              <Link href={site.url} isExternal>
-                {site.url}
-              </Link>
-            </Td>
-            <Td>
-              <Link href={`/p/${site.id}`}>View Feedback</Link>
-            </Td>
-            <Td>{format(parseISO(site.createdAt), 'PPpp')}</Td>
-          </Box>
-        ))}
-      </tbody>
-    </Table>
+    <Box overflowX="scroll">
+      <Table w="full">
+        <thead>
+          <Tr>
+            <Th>Name</Th>
+            <Th>Site Link</Th>
+            <Th>Feedback Link</Th>
+            <Th>Date Added</Th>
+            <Th width="50px">{''}</Th>
+          </Tr>
+        </thead>
+        <tbody>
+          {sites.map((site) => (
+            <Box as="tr" key={site.id}>
+              <Td fontWeight="medium">{site.name}</Td>
+              <Td>
+                <Link href={site.url} isExternal>
+                  {site.url}
+                </Link>
+              </Td>
+              <Td>
+                <NextLink href="/p/[siteId]" as={`/p/${site.id}`} passHref>
+                  <Link color="blue.500" fontWeight="medium">
+                    View Feedback
+                  </Link>
+                </NextLink>
+              </Td>
+              <Td>{format(parseISO(site.createdAt), 'PPpp')}</Td>
+            </Box>
+          ))}
+        </tbody>
+      </Table>
+    </Box>
   );
 };
 
@@ -141,7 +147,7 @@ This improves the responsiveness of your application by making navigations to ne
 ### Consuming the Data
 
 Now that we have access to the data from the route, we can build the UI to consume the data.
-I've chosen to create "cards" for each metric.
+Let's create a new route to show all of the user's sites.
 
 **`pages/sites.js`**
 

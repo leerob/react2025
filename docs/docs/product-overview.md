@@ -33,13 +33,13 @@ For example, this would display comments for Fast Feedback itself.
 
 ```html
 <iframe
-  src="https://app.fastfeedback.io/embed/h3j5h2555hk2f?route=https%3A%2F%2Ffastfeedback.io"
+  src="https://fastfeedback.io/embed/h3j5h2555hk2f?route=https%3A%2F%2Ffastfeedback.io"
 />
 ```
 
 Let's break this URL down.
 
-- `https://app.fastfeedback.io/embed/${SITE_ID}` - This route displays all feedback for the given `SITE_ID`. Feedback is presented with a clean, minimal design including a link to login and leave feedback. Paid users can customize styling of feedback.
+- `https://fastfeedback.io/embed/${SITE_ID}` - This route displays all feedback for the given `SITE_ID`. Feedback is presented with a clean, minimal design including a link to login and leave feedback. Paid users can customize styling of feedback.
 - `?route=${URL_ENCODED_ROUTE}` - This query parameter allows you to track which route the feedback is for. This allows you to use the same `SITE_ID` for a blog for example.
 
 We're able to use **no JavaScript** by serving a static site through the `iframe`. You might be wondering – how does the feedback get updated then? Using Next.js and [Incremental Static Regeneration](https://nextjs.org/blog/next-9-4#incremental-static-regeneration-beta), we can periodically regenerate the static page to show all comments that have been approved.
@@ -48,17 +48,16 @@ We're able to use **no JavaScript** by serving a static site through the `iframe
 
 **User**
 
-| Name               |   Type   |                  Description |
-| :----------------- | :------: | ---------------------------: |
-| `createdAt`        | `String` |                ISO Timestamp |
-| `email`            | `String` |      Email from social login |
-| `name`             | `String` |       Name from social login |
-| `photoUrl`         | `String` |     Avatar from social login |
-| `plan`             | `String` |           (Starter, Premium) |
-| `provider`         | `String` |  Which social login was used |
-| `uid`              | `String` |       UID from Firebase Auth |
-| `stripeCustomerId` | `String` | Linking customer with Stripe |
-| `status`           | `String` | (Active, Suspended, Deleted) |
+| Name         |   Type   |                  Description |
+| :----------- | :------: | ---------------------------: |
+| `uid`        | `String` |       UID from Firebase Auth |
+| `email`      | `String` |      Email from social login |
+| `name`       | `String` |       Name from social login |
+| `photoUrl`   | `String` |     Avatar from social login |
+| `provider`   | `String` |  Which social login was used |
+| `stripeRole` | `String` |     (Free, Starter, Premium) |
+| `stripeId`   | `String` | Linking customer with Stripe |
+| `status`     | `String` | (Active, Suspended, Deleted) |
 
 **Feedback**
 

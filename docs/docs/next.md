@@ -2,7 +2,7 @@
 title: Next.js
 ---
 
-![Next.js Trend](https://masteringnextjs.com/images/learn-next-js/nextjs-trend.png)
+![Next.js Trend](https://leerob.io/static/images/learn-nextjs/nextjs-trend.png)
 
 You've heard great things about this new web framework called [Next.js](https://nextjs.org/),
 but you're still not sure _why_ people are using it.
@@ -35,19 +35,19 @@ Of 90,000 developers [surveyed by Stack Overflow](https://insights.stackoverflow
 Why? With React, you can build anything from simple marketing splash pages to full-fledged web applications on the scale of Facebook.
 It's flexible and composable. Developers love this.
 
-![React.js Trend](https://masteringnextjs.com/images/learn-next-js/react-trend.png)
+![React.js Trend](https://leerob.io/static/images/learn-nextjs/react-trend.png)
 
 This trend means that more developers than ever are learning React, and thus JavaScript as well.
 It's become one of the hottest skills recruiters are looking for. JavaScript is the [#1 language used](https://octoverse.github.com/) according to GitHub.
 
-[![GitHub Octoberse](https://masteringnextjs.com/images/learn-next-js/github.png)](https://octoverse.github.com/)
+[![GitHub Octoberse](https://leerob.io/static/images/learn-nextjs/github.png)](https://octoverse.github.com/)
 
 For companies, this means you're more likely to find employees who already know React.
 For developers, this makes a very advantageous skill to add to your skillset.
 
 According to [NPM trends](https://www.npmtrends.com/), it's outpacing other web frameworks like Angular and Vue by **~5 million installs/day**.
 
-![NPM Install Trend](https://masteringnextjs.com/images/learn-next-js/npm-trend.png)
+![NPM Install Trend](https://leerob.io/static/images/learn-nextjs/npm-trend.png)
 
 This doesn't mean React is perfect. Since you're loading content client-side, you have to
 wait for the JavaScript bundle to load before you can determine what to show on the page. This can be problematic for users
@@ -62,7 +62,7 @@ Enter Next.js.
 [Next.js](https://nextjs.org/) solves both of those problems using server-rendering or static-site generation. Next's framework allows you to build scalable, performant React code without the configuration hassle.
 That's why so many companies depend on Next for shipping production applications.
 
-![Companies using Next.js](https://masteringnextjs.com/images/learn-next-js/companies.png)
+![Companies using Next.js](https://leerob.io/static/images/learn-nextjs/companies.png)
 
 - 350k+ Next.js devs (30% of all React devs)
 - 60+ Alexa top 10k sites built using Next.js

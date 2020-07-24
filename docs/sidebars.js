@@ -19,13 +19,17 @@ module.exports = {
       'firebase-admin',
       'chakra-ui',
       'dynamic-routing',
-      'absolute-imports'
+      'absolute-imports',
+      'feedback-page',
+      'feedback-conclusion'
     ],
     '3: User Dashboard': [
       'creating-the-dashboard',
       'empty-state',
       'loading-skeleton',
-      'swr'
+      'swr',
+      'making-it-reusable',
+      'get-user-sites'
     ],
     '4: Accepting Payments': ['pricing', 'stripe', 'account-settings'],
     '5: Embedded View': ['embedded-view'],

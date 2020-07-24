@@ -45,6 +45,7 @@ export default theme;
 
 Now, we can add the theme to our application with `ThemeProvider`, passing the `theme` object as a prop.
 Let's modify `pages/_app.js` to make the theme available to all pages.
+Next.js uses the [`App` component](https://nextjs.org/docs/advanced-features/custom-app) to initialize pages. You can override it and control the page initialization.
 
 **`pages/_app.js`**
 
@@ -65,4 +66,34 @@ const App = ({ Component, pageProps }) => {
 };
 
 export default App;
+```
+
+We also need to load the font Inter defined earlier. A [custom Document](https://nextjs.org/docs/advanced-features/custom-document) is commonly used to augment your application's `<html>` and `<body>` tags. This is necessary because Next.js pages skip the definition of the surrounding document's markup.
+
+**`pages/_document.js`**
+
+```js
+import Document, { Html, Head, Main, NextScript } from 'next/document';
+
+class MyDocument extends Document {
+  render() {
+    return (
+      <Html>
+        <Head>
+          <meta content="width=device-width, initial-scale=1" name="viewport" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+            rel="stylesheet"
+          />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
+  }
+}
+
+export default MyDocument;
 ```

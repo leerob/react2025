@@ -26,3 +26,9 @@ Inside our `package.json`, we now have access to start the application.
 - `start` - Runs `next start` which starts a Next.js production server.
 
 Run `yarn dev` to view the application at `http://localhost:3000`.
+
+:::note
+
+If you don't want to code along, you can also view the [completed source code](https://github.com/leerob/fastfeedback).
+
+:::
