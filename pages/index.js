@@ -415,7 +415,7 @@ const Index = () => (
             as="h2"
             size="lg"
             fontWeight="bold"
-            id="pre-order"
+            id="buy-now"
           >
             Let's get started.
           </Heading>
