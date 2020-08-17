@@ -9,6 +9,10 @@
     {
       "source": "/pre-order",
       "destination": "/"
+    },
+    {
+      "source": "/launch",
+      "destination": "/"
     }
   ]
 }
