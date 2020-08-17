@@ -1,5 +1,4 @@
 import React from 'react';
-import { TwitterTweetEmbed } from 'react-twitter-embed';
 import {
   Heading,
   Flex,
@@ -24,18 +23,6 @@ const trackGoal = (id) => {
     window.fathom.trackGoal(id, 0);
   }
 };
-
-const Tweet = ({ tweetId }) => (
-  <Box w="full" minW="300px">
-    <TwitterTweetEmbed
-      tweetId={tweetId}
-      options={{
-        conversation: 'none',
-        width: '100%'
-      }}
-    />
-  </Box>
-);
 
 const Index = () => (
   <Box as="main">
@@ -275,7 +262,7 @@ const Index = () => (
           <Text color="gray.700" mt={4}>
             This course will show the journey from zero lines of code to
             production for a real SaaS app. This isn't another example. At the
-            end of the course, <b>I'm launching the product.</b>
+            end of the course, <b>I launched the product.</b>
           </Text>
           <List spacing={2} mt={12}>
             <ListItem
@@ -315,47 +302,130 @@ const Index = () => (
               Deployed serverless to Vercel
             </ListItem>
           </List>
-          <Text color="gray.700" mt={16} fontStyle="italic" fontSize="lg">
-            "<b>Lee is an awesome teacher </b> and I really enjoyed taking this
-            course. It not only touches on the core of Next.js, but also broader
-            concepts like TypeScript, testing and authentication.
-            <b> Videos are great quality and good length</b>. I would definitely
-            recommend the course." –– Maurits Misana
-          </Text>
-          <Flex
-            color="gray.900"
-            mt={2}
-            fontWeight="bold"
-            pr={8}
-            align="center"
-            justify="flex-end"
-            w="full"
-          >
-            <Icon name="nextjs" mr={2} />
-            Mastering Next.js
-          </Flex>
           <Divider borderColor="gray.200" my={16} w="100%" />
-          <Tweet tweetId="1262266180573806597" />
-          <Tweet tweetId="1262312140586618882" />
-          <Tweet tweetId="1262274160018915328" />
-          <Tweet tweetId="1262300081841008646" />
+          <Heading
+            letterSpacing="tight"
+            mt={4}
+            as="h2"
+            size="lg"
+            fontWeight="bold"
+          >
+            What people are saying.
+          </Heading>
+          <Box
+            borderRadius={8}
+            border="1px solid"
+            borderColor="gray.200"
+            p={6}
+            mt={8}
+            mb={4}
+          >
+            <Text color="gray.800" fontStyle="italic" fontSize="lg">
+              "<b>Seriously incredible work.</b> Your live streams have really
+              helped my impostor syndrome. Watching you work is both educational
+              and gratifying. Keep it up!"
+            </Text>
+            <Flex
+              color="gray.900"
+              mt={2}
+              fontWeight="medium"
+              pr={8}
+              align="center"
+              w="full"
+            >
+              <Link isExternal href="https://twitter.com/michaelschultz">
+                <Avatar
+                  w="24px"
+                  h="24px"
+                  name="Michael Schultz"
+                  src="https://pbs.twimg.com/profile_images/1161783519099535360/nn7vzYFP_400x400.jpg"
+                  mr={2}
+                />
+              </Link>
+              Michael Schultz
+            </Flex>
+          </Box>
+          <Box
+            borderRadius={8}
+            border="1px solid"
+            borderColor="gray.200"
+            p={6}
+            my={4}
+          >
+            <Text color="gray.800" fontStyle="italic" fontSize="lg">
+              "<b>His teaching style helped me level up</b> and gave me a new
+              skill to flex."
+            </Text>
+            <Flex
+              color="gray.900"
+              mt={2}
+              fontWeight="medium"
+              pr={8}
+              align="center"
+              w="full"
+            >
+              <Link isExternal href="https://twitter.com/Codebrother1">
+                <Avatar
+                  w="24px"
+                  h="24px"
+                  name="TC"
+                  src="https://pbs.twimg.com/profile_images/1234486518527512577/-tY5Vb4T_400x400.jpg"
+                  mr={2}
+                />
+              </Link>
+              TC
+            </Flex>
+          </Box>
+          <Box
+            borderRadius={8}
+            border="1px solid"
+            borderColor="gray.200"
+            p={6}
+            mt={4}
+          >
+            <Text color="gray.800" fontStyle="italic" fontSize="lg">
+              "Exceptional teaching material and a very qualified teacher.{' '}
+              <b>I never expected so much quality.</b> Lee is a clear and
+              precise instructor; his general overview combined with practical
+              examples is amazing."
+            </Text>
+            <Flex
+              color="gray.900"
+              mt={2}
+              fontWeight="medium"
+              pr={8}
+              align="center"
+              w="full"
+            >
+              <Link isExternal href="https://twitter.com/aboutraffaele">
+                <Avatar
+                  w="24px"
+                  h="24px"
+                  name="Raffaele Vitale"
+                  src="https://cdn-images-1.medium.com/fit/c/200/200/2*Hr-D00TXI75fkkc3FP8dug.jpeg"
+                  mr={2}
+                />
+              </Link>
+              Raffaele Vitale
+            </Flex>
+          </Box>
           <Divider borderColor="gray.200" my={16} w="100%" />
           <Heading
             letterSpacing="tight"
             as="h2"
             size="lg"
             fontWeight="bold"
-            id="pre-order"
+            id="buy-now"
           >
             Let's get started.
           </Heading>
           <Text color="gray.700" mt={4} mb={8}>
-            Pre-order today and get <b>$50 off</b> the launch price + access to
-            a&nbsp;
+            Order now and get <b>$50 off</b> with the launch discount + access
+            to a 20% off discount for&nbsp;
             <Link
               isExternal
               fontWeight="bold"
-              href="https://youtu.be/MxR5I5_hOKk"
+              href="https://www.checklyhq.com/"
               textDecoration="none"
               borderBottom="2px solid #0af5f4"
               transition="all 0.1s ease-in"
@@ -364,68 +434,24 @@ const Index = () => (
                 borderBottom: '2px solid #09DB1F'
               }}
             >
-              live stream.
+              Checkly
+            </Link>
+            {' and '}
+            <Link
+              isExternal
+              fontWeight="bold"
+              href="https://divjoy.com/"
+              textDecoration="none"
+              borderBottom="2px solid #0af5f4"
+              transition="all 0.1s ease-in"
+              _hover={{
+                textDecoration: 'none',
+                borderBottom: '2px solid #09DB1F'
+              }}
+            >
+              Divjoy.
             </Link>
           </Text>
-          <Link
-            isExternal
-            href="https://gumroad.com/l/TifxZ/pre-order"
-            textDecoration="none"
-            transition="all 0.1s ease-in"
-            borderRadius={8}
-            onClick={() => trackGoal('OHBXSGKY')}
-            mb={4}
-            w="full"
-            _hover={{
-              textDecoration: 'none',
-              boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.05)'
-            }}
-          >
-            <Box
-              borderRadius={8}
-              w="full"
-              border="1px solid"
-              borderColor="gray.200"
-              p={4}
-            >
-              <Badge variantColor="green" fontSize="md" mb={4}>
-                $249
-                <Box textDecoration="line-through" display="inline" ml={1}>
-                  ($299)
-                </Box>
-              </Badge>
-              <Heading
-                letterSpacing="tight"
-                as="h5"
-                size="lg"
-                fontWeight="bold"
-              >
-                Community
-              </Heading>
-              <List spacing={1} mt={4}>
-                <ListItem fontSize="lg" alignItems="center" display="flex">
-                  <ListIcon icon="check" color="green.500" />
-                  Live streams building the course
-                </ListItem>
-                <ListItem fontSize="lg" alignItems="center" display="flex">
-                  <ListIcon icon="check" color="green.500" />
-                  Access to private community
-                </ListItem>
-                <ListItem fontSize="lg" alignItems="center" display="flex">
-                  <ListIcon icon="check" color="green.500" />
-                  Complete video course
-                </ListItem>
-                <ListItem fontSize="lg" alignItems="center" display="flex">
-                  <ListIcon icon="check" color="green.500" />
-                  Written tutorial
-                </ListItem>
-                <ListItem fontSize="lg" alignItems="center" display="flex">
-                  <ListIcon icon="check" color="green.500" />
-                  Source code
-                </ListItem>
-              </List>
-            </Box>
-          </Link>
           <Link
             isExternal
             href="https://gumroad.com/l/TifxZ/pre-order"
@@ -447,7 +473,7 @@ const Index = () => (
               borderColor="gray.200"
               p={4}
             >
-              <Badge fontSize="md" mb={4}>
+              <Badge variantColor="green" fontSize="md" mb={4}>
                 $99
                 <Box textDecoration="line-through" display="inline" ml={1}>
                   ($149)
@@ -462,9 +488,26 @@ const Index = () => (
                 Premium
               </Heading>
               <List spacing={1} mt={4}>
-                <ListItem fontSize="lg">→ Complete video course</ListItem>
-                <ListItem fontSize="lg">→ Written tutorial</ListItem>
-                <ListItem fontSize="lg">→ Source code</ListItem>
+                <ListItem fontSize="lg" alignItems="center" display="flex">
+                  <ListIcon icon="check" color="green.500" />
+                  Access to private community
+                </ListItem>
+                <ListItem fontSize="lg" alignItems="center" display="flex">
+                  <ListIcon icon="check" color="green.500" />
+                  Exclusive discounts
+                </ListItem>
+                <ListItem fontSize="lg" alignItems="center" display="flex">
+                  <ListIcon icon="check" color="green.500" />
+                  Complete video course
+                </ListItem>
+                <ListItem fontSize="lg" alignItems="center" display="flex">
+                  <ListIcon icon="check" color="green.500" />
+                  Written tutorial
+                </ListItem>
+                <ListItem fontSize="lg" alignItems="center" display="flex">
+                  <ListIcon icon="check" color="green.500" />
+                  Source code
+                </ListItem>
               </List>
             </Box>
           </Link>

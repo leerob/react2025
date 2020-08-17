@@ -65,8 +65,7 @@ const Subscribe = () => {
   return (
     <Box m={8} w="100%" mx="auto" as="form">
       <Heading as="h5" size="xs" mb={1} color="gray.900" fontWeight="medium">
-        Sign up for our newsletter to get free previews of React 2025 as it’s
-        built.
+        Sign up for my newsletter and get two free videos from the course.
       </Heading>
       <InputGroup size="lg" mt={2}>
         <Input
@@ -76,7 +75,7 @@ const Subscribe = () => {
           type="email"
           fontSize="md"
         />
-        <InputRightElement width="8.5rem">
+        <InputRightElement width="8rem">
           <Button
             isLoading={loading}
             fontWeight="bold"
@@ -88,7 +87,7 @@ const Subscribe = () => {
             color="white"
             _hover={{ bg: 'black' }}
           >
-            Get Updates
+            Watch Now
           </Button>
         </InputRightElement>
       </InputGroup>
@@ -97,7 +96,7 @@ const Subscribe = () => {
         <Link
           onClick={() => trackGoal('5DZENR7D')}
           fontWeight="bold"
-          href="#pre-order"
+          href="#buy-now"
           textDecoration="none"
           borderBottom="2px solid #0af5f4"
           transition="all 0.1s ease-in"
@@ -106,7 +105,7 @@ const Subscribe = () => {
             borderBottom: '2px solid #09DB1F'
           }}
         >
-          pre-order now
+          buy now
         </Link>
         &nbsp;if you're already convinced!
       </Text>
