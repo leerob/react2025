@@ -12,7 +12,8 @@ import {
   Link,
   Icon,
   Avatar,
-  Badge
+  Badge,
+  AspectRatioBox
 } from '@chakra-ui/core';
 
 import Container from '../components/Container';
@@ -302,6 +303,44 @@ const Index = () => (
               Deployed serverless to Vercel
             </ListItem>
           </List>
+          <Divider borderColor="gray.200" my={16} w="100%" />
+          <Heading
+            letterSpacing="tight"
+            mt={4}
+            as="h2"
+            size="lg"
+            fontWeight="bold"
+          >
+            What we're building.
+          </Heading>
+          <Text color="gray.700" mt={4}>
+            In this course, we'll build Fast Feedback – the easiest way to add
+            reviews and comments to your site. You can try it out&nbsp;
+            <Link
+              isExternal
+              fontWeight="bold"
+              href="https://fastfeedback.io"
+              textDecoration="none"
+              borderBottom="2px solid #0af5f4"
+              transition="all 0.1s ease-in"
+              _hover={{
+                textDecoration: 'none',
+                borderBottom: '2px solid #09DB1F'
+              }}
+            >
+              here.
+            </Link>
+          </Text>
+          <AspectRatioBox mt={8} w="100%" ratio={16 / 9}>
+            <Box
+              as="iframe"
+              title="Fast Feedback Demo"
+              src="https://www.loom.com/embed/c086b098bccc4be5a7be297185ce102e"
+              allowFullScreen
+              h="300px"
+              w="100%"
+            />
+          </AspectRatioBox>
           <Divider borderColor="gray.200" my={16} w="100%" />
           <Heading
             letterSpacing="tight"
