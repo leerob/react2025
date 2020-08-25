@@ -319,7 +319,7 @@ const Index = () => (
             <Link
               isExternal
               fontWeight="bold"
-              href="https://fastfeedback.io"
+              href="https://fastfeedback-git-stream-14.leerob1.vercel.app/"
               textDecoration="none"
               borderBottom="2px solid #0af5f4"
               transition="all 0.1s ease-in"
