@@ -1,59 +1,56 @@
+import 'tailwindcss/tailwind.css';
 import React, { useEffect } from 'react';
-import { Global, css } from '@emotion/core';
 import { DefaultSeo } from 'next-seo';
-import { ThemeProvider, CSSReset } from '@chakra-ui/core';
+import Router from 'next/router';
+import * as Fathom from 'fathom-client';
 
-import theme from '../styles/theme';
 import SEO from '../next-seo.config';
 
-const GlobalStyle = ({ children }) => (
-  <>
-    <CSSReset />
-    <Global
-      styles={css`
-        ::selection {
-          background-color: #0af5f4;
-          color: #fefefe;
-        }
+// const GlobalStyle = ({ children }) => (
+//   <>
+//     <CSSReset />
+//     <Global
+//       styles={css`
+//         ::selection {
+//           background-color: #0af5f4;
+//           color: #fefefe;
+//         }
 
-        html {
-          min-width: 360px;
-          scroll-behavior: smooth;
-        }
+//         html {
+//           min-width: 360px;
+//           scroll-behavior: smooth;
+//         }
 
-        #__next {
-          display: flex;
-          flex-direction: column;
-          min-height: 100vh;
-          background: white;
-        }
-      `}
-    />
-    {children}
-  </>
-);
+//         #__next {
+//           display: flex;
+//           flex-direction: column;
+//           min-height: 100vh;
+//           background: white;
+//         }
+//       `}
+//     />
+//     {children}
+//   </>
+// );
+
+Router.events.on('routeChangeComplete', () => {
+  Fathom.trackPageview();
+});
 
 const App = ({ Component, pageProps }) => {
   useEffect(() => {
     if (process.env.NODE_ENV === 'production') {
-      const tracker = window.document.createElement('script');
-      const firstScript = window.document.querySelectorAll('script')[0];
-
-      tracker.defer = true;
-      tracker.setAttribute('site', 'YBUASOVW');
-      tracker.setAttribute('spa', 'auto');
-      tracker.src = 'https://cdn.usefathom.com/script.js';
-      firstScript.parentNode.insertBefore(tracker, firstScript);
+      Fathom.load(process.env.NEXT_PUBLIC_FATHOM_SITE_ID, {
+        includedDomains: ['react2025.com']
+      });
     }
   }, []);
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle>
-        <DefaultSeo {...SEO} />
-        <Component {...pageProps} />
-      </GlobalStyle>
-    </ThemeProvider>
+    <>
+      <DefaultSeo {...SEO} />
+      <Component {...pageProps} />
+    </>
   );
 };
 

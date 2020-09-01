@@ -8,45 +8,28 @@
     "url": "https://leerob.io"
   },
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/leerob/react2025.git"
-  },
   "scripts": {
-    "build": "next build",
     "dev": "next",
-    "lint": "eslint . --ext .json --ext .js",
-    "prettier": "prettier --write \"**/*.{html,js,md,yml}\"",
-    "start": "next start",
-    "test": "yarn lint"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{html,js,md,yml}": [
-      "prettier --write",
-      "git add"
-    ]
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
-    "@chakra-ui/core": "0.7.0",
-    "@emotion/core": "10.0.28",
-    "@emotion/styled": "10.0.27",
-    "emotion-theming": "10.0.27",
-    "next": "9.4.0",
-    "next-seo": "4.4.0",
-    "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "autoprefixer": "^9.8.6",
+    "fathom-client": "^3.0.0",
+    "next": "latest",
+    "next-seo": "latest",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "tailwindcss": "^1.6.0"
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "none"
   },
   "devDependencies": {
-    "eslint": "6.8.0",
-    "eslint-config-get-off-my-lawn": "5.0.1",
-    "globby": "11.0.0",
-    "husky": "4.2.3",
-    "lint-staged": "10.1.2",
-    "prettier": "2.0.2"
+    "globby": "^11.0.1",
+    "prettier": "^2.1.1"
   }
 }

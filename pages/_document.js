@@ -4,7 +4,7 @@ import React from 'react';
 class MyDocument extends Document {
   render() {
     return (
-      <html lang="en">
+      <html lang="en" className="antialiased">
         <Head>
           <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
           <meta content="width=device-width, initial-scale=1" name="viewport" />
