@@ -493,7 +493,7 @@ const Index = () => (
           </Text>
           <Link
             isExternal
-            href="https://gumroad.com/l/TifxZ/pre-order"
+            href="https://gumroad.com/l/TifxZ"
             textDecoration="none"
             transition="all 0.1s ease-in"
             borderRadius={8}
@@ -552,7 +552,7 @@ const Index = () => (
           </Link>
           <Link
             isExternal
-            href="https://gumroad.com/l/TifxZ/pre-order"
+            href="https://gumroad.com/l/TifxZ"
             textDecoration="none"
             transition="all 0.1s ease-in"
             borderRadius={8}
