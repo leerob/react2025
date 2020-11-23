@@ -16,7 +16,10 @@ const Container = ({ children }) => (
         borderBottom="5px solid"
         borderColor="blue.800"
       >
-        🎉 Black Friday sale live now! Get 80% off ↓ 🎉
+        🎉&nbsp;&nbsp;Black Friday sale live now!
+        <Box as="span" display={['none', 'initial']} pl={1}>
+        Get 80% off ↓ 🎉
+        </Box>
       </Flex>
       <Box
         background="linear-gradient(270deg, #0AF5F4 25.28%, #09DB1F 59.7%, #F7F322 97.75%)"
