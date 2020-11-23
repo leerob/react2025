@@ -3,5 +3,4 @@
 .next
 node_modules
 .env.local
-public/sitemap.xml
 .vercel

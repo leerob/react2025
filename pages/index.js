@@ -408,7 +408,7 @@ const Index = () => (
                   w="24px"
                   h="24px"
                   name="TC"
-                  src="https://pbs.twimg.com/profile_images/1234486518527512577/-tY5Vb4T_400x400.jpg"
+                  src="https://pbs.twimg.com/profile_images/1320476919540928514/gQmLpNOh_400x400.jpg"
                   mr={2}
                 />
               </Link>
@@ -459,7 +459,7 @@ const Index = () => (
             Let's get started.
           </Heading>
           <Text color="gray.700" mt={4} mb={8}>
-            Order now and get <b>$50 off</b> with the launch discount + access
+            Join over 1,000 other students who've taken React 2025. Order now and get <b>80% off</b> with the Black Friday discount + access
             to a 20% off discount for&nbsp;
             <Link
               isExternal
@@ -493,7 +493,7 @@ const Index = () => (
           </Text>
           <Link
             isExternal
-            href="https://gumroad.com/l/TifxZ"
+            href="https://gumroad.com/l/TifxZ/black-friday"
             textDecoration="none"
             transition="all 0.1s ease-in"
             borderRadius={8}
@@ -513,7 +513,7 @@ const Index = () => (
               p={4}
             >
               <Badge variantColor="green" fontSize="md" mb={4}>
-                $99
+                $20
                 <Box textDecoration="line-through" display="inline" ml={1}>
                   ($149)
                 </Box>
@@ -552,7 +552,7 @@ const Index = () => (
           </Link>
           <Link
             isExternal
-            href="https://gumroad.com/l/TifxZ"
+            href="https://gumroad.com/l/TifxZ/black-friday"
             textDecoration="none"
             transition="all 0.1s ease-in"
             borderRadius={8}
@@ -572,7 +572,7 @@ const Index = () => (
               p={4}
             >
               <Badge fontSize="md" mb={4}>
-                $39
+                $8
                 <Box textDecoration="line-through" display="inline" ml={1}>
                   ($89)
                 </Box>
