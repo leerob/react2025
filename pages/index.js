@@ -10,7 +10,6 @@ import {
   ListIcon,
   Divider,
   Link,
-  Icon,
   Avatar,
   Button,
   AspectRatioBox
@@ -290,7 +289,15 @@ const Index = () => (
             justify="flex-end"
             w="full"
           >
-            <Icon name="nextjs" mr={2} />
+            <Box
+              as="img"
+              alt="React 2025"
+              src="/logo.svg"
+              width="14px"
+              height="14px"
+              mr={2}
+              mt={1}
+            />
             React 2025
           </Flex>
           <Divider borderColor="gray.200" my={16} w="100%" />

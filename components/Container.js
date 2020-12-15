@@ -26,7 +26,7 @@ const Container = ({ children }) => (
           <Box as="a">
             <Box
               as="img"
-              alt="jamstackfns"
+              alt="React 2025"
               src="/logo.svg"
               width="32px"
               height="32px"
