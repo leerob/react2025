@@ -26,13 +26,21 @@ const Container = ({ children }) => (
           <Box as="a">
             <Box
               as="img"
-              alt="jamstackfns"
+              alt="React 2025"
               src="/logo.svg"
               width="32px"
               height="32px"
             />
           </Box>
         </NextLink>
+        <Box
+          as="a"
+          href="https://docs.react2025.com"
+          fontWeight="medium"
+          color="gray.700"
+        >
+          Documentation
+        </Box>
       </Flex>
     </Box>
     {children}
