@@ -33,6 +33,14 @@ const Container = ({ children }) => (
             />
           </Box>
         </NextLink>
+        <Box
+          as="a"
+          href="https://docs.react2025.com"
+          fontWeight="medium"
+          color="gray.700"
+        >
+          Documentation
+        </Box>
       </Flex>
     </Box>
     {children}

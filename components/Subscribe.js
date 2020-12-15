@@ -65,7 +65,7 @@ const Subscribe = () => {
   return (
     <Box m={8} w="100%" mx="auto" as="form">
       <Heading as="h5" size="xs" mb={1} color="gray.900" fontWeight="medium">
-        Sign up for my newsletter and get two free videos from the course.
+        Join my newsletter to hear about new courses, articles, and content.
       </Heading>
       <InputGroup size="lg" mt={2}>
         <Input
@@ -75,7 +75,7 @@ const Subscribe = () => {
           type="email"
           fontSize="md"
         />
-        <InputRightElement width="8rem">
+        <InputRightElement width="8.5rem">
           <Button
             isLoading={loading}
             fontWeight="bold"
@@ -87,28 +87,10 @@ const Subscribe = () => {
             color="white"
             _hover={{ bg: 'black' }}
           >
-            Watch Now
+            Get Updates
           </Button>
         </InputRightElement>
       </InputGroup>
-      <Text fontSize="xs" mt={2} color="gray.700">
-        Or&nbsp;
-        <Link
-          onClick={() => trackGoal('5DZENR7D')}
-          fontWeight="bold"
-          href="#buy-now"
-          textDecoration="none"
-          borderBottom="2px solid #0af5f4"
-          transition="all 0.1s ease-in"
-          _hover={{
-            textDecoration: 'none',
-            borderBottom: '2px solid #09DB1F'
-          }}
-        >
-          buy now
-        </Link>
-        &nbsp;if you're already convinced!
-      </Text>
     </Box>
   );
 };

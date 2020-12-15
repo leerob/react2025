@@ -12,18 +12,56 @@ import {
   Link,
   Icon,
   Avatar,
-  Badge,
+  Button,
   AspectRatioBox
 } from '@chakra-ui/core';
 
 import Container from '../components/Container';
 import Subscribe from '../components/Subscribe';
 
-const trackGoal = (id) => {
-  if (window.fathom) {
-    window.fathom.trackGoal(id, 0);
-  }
-};
+const VideoCard = ({ title, length, href, children, ...rest }) => (
+  <Link
+    href={href}
+    isExternal
+    borderRadius={8}
+    {...rest}
+    _hover={{
+      textDecoration: 'none',
+      transform: 'scale(1.02)'
+    }}
+  >
+    <Flex direction={['column', 'column', 'row']}>
+      <Box
+        boxShadow="0px 20px 40px rgba(0, 0, 0, 0.2)"
+        borderRadius={8}
+        w="250px"
+        h="150px"
+        mr={8}
+        as="img"
+        objectFit="cover"
+        src="/video.png"
+      />
+      <Stack>
+        <Heading
+          letterSpacing="tight"
+          as="h3"
+          size="md"
+          fontWeight="medium"
+          mb={0}
+          mt={[4, 4, 0]}
+        >
+          {title}
+        </Heading>
+        <Text color="gray.600" mb={2} fontSize="xs">
+          {length}
+        </Text>
+        <Text color="gray.700" mb={2} fontSize="sm" maxW="300px">
+          {children}
+        </Text>
+      </Stack>
+    </Flex>
+  </Link>
+);
 
 const Index = () => (
   <Box as="main">
@@ -60,10 +98,22 @@ const Index = () => (
               </Box>
             </Heading>
             <Text color="gray.700" mb={4} fontSize="lg">
-              Build and deploy a modern Jamstack application using the most
-              popular open-source software.
+              Build and deploy a modern SaaS application using the most popular
+              open-source software.
             </Text>
-            <Subscribe />
+            <Button
+              as="a"
+              href="#course-overview"
+              fontWeight="bold"
+              h="2.5rem"
+              mr={1}
+              size="md"
+              bg="gray.800"
+              color="white"
+              _hover={{ bg: 'black' }}
+            >
+              Watch Now →
+            </Button>
           </Flex>
         </Stack>
       </Container>
@@ -228,10 +278,8 @@ const Index = () => (
             </ListItem>
           </List>
           <Text color="gray.700" mt={16} fontStyle="italic" fontSize="lg">
-            "Not only did I enjoy your Mastering Next.js course, but I
-            <b> learned many things entirely new to me</b>. This course opened
-            my eyes to what's possible and what you can achieve with these
-            technologies." –– José Llamas
+            "React 2025 helped me <b>leave my front-end comfort zone</b> and
+            expand into the full stack." –– Joe Bell
           </Text>
           <Flex
             color="gray.900"
@@ -243,7 +291,7 @@ const Index = () => (
             w="full"
           >
             <Icon name="nextjs" mr={2} />
-            Mastering Next.js
+            React 2025
           </Flex>
           <Divider borderColor="gray.200" my={16} w="100%" />
           <Heading
@@ -319,7 +367,7 @@ const Index = () => (
             <Link
               isExternal
               fontWeight="bold"
-              href="https://fastfeedback-git-stream-14.leerob1.vercel.app/"
+              href="https://fastfeedback.io"
               textDecoration="none"
               borderBottom="2px solid #0af5f4"
               transition="all 0.1s ease-in"
@@ -408,7 +456,7 @@ const Index = () => (
                   w="24px"
                   h="24px"
                   name="TC"
-                  src="https://pbs.twimg.com/profile_images/1320476919540928514/gQmLpNOh_400x400.jpg"
+                  src="https://pbs.twimg.com/profile_images/1333576118658469889/Aw2suLWx_400x400.png"
                   mr={2}
                 />
               </Link>
@@ -454,17 +502,19 @@ const Index = () => (
             as="h2"
             size="lg"
             fontWeight="bold"
-            id="buy-now"
+            id="course-overview"
           >
-            Let's get started.
+            Course Overview
           </Heading>
           <Text color="gray.700" mt={4} mb={8}>
-            Join over 1,500 other students who've taken React 2025. Order now
-            and get access to a 20% off discount for&nbsp;
+            Join over 1,500 other students who've taken React 2025. All videos
+            are
+            <b> 100% free.</b> If you'd like to support me, you can
+            pay-what-you-want on&nbsp;
             <Link
               isExternal
               fontWeight="bold"
-              href="https://www.checklyhq.com/"
+              href="https://gumroad.com/l/TifxZ"
               textDecoration="none"
               borderBottom="2px solid #0af5f4"
               transition="all 0.1s ease-in"
@@ -473,128 +523,130 @@ const Index = () => (
                 borderBottom: '2px solid #09DB1F'
               }}
             >
-              Checkly
-            </Link>
-            {' and '}
-            <Link
-              isExternal
-              fontWeight="bold"
-              href="https://divjoy.com/"
-              textDecoration="none"
-              borderBottom="2px solid #0af5f4"
-              transition="all 0.1s ease-in"
-              _hover={{
-                textDecoration: 'none',
-                borderBottom: '2px solid #09DB1F'
-              }}
-            >
-              Divjoy.
+              Gumroad.
             </Link>
           </Text>
-          <Link
-            isExternal
-            href="https://gumroad.com/l/TifxZ"
-            textDecoration="none"
-            transition="all 0.1s ease-in"
-            borderRadius={8}
-            onClick={() => trackGoal('GWFYT6R7')}
-            mb={4}
-            w="full"
-            _hover={{
-              textDecoration: 'none',
-              boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.05)'
-            }}
-          >
-            <Box
-              borderRadius={8}
-              w="full"
-              border="1px solid"
-              borderColor="gray.200"
-              p={4}
+          <Stack mt={8} spacing={8}>
+            <VideoCard
+              title="Welcome to React 2025"
+              length="1:17"
+              href="https://www.youtube.com/watch?v=JCOPVq2AYXc&list=PL6bwFJ82M6FXgctyoWXqj7H0GK8_YIeF1&index=1"
             >
-              <Badge variantColor="green" fontSize="md" mb={4}>
-                $99
-                <Box textDecoration="line-through" display="inline" ml={1}>
-                  ($149)
-                </Box>
-              </Badge>
-              <Heading
-                letterSpacing="tight"
-                as="h5"
-                size="lg"
-                fontWeight="bold"
-              >
-                Premium
-              </Heading>
-              <List spacing={1} mt={4}>
-                <ListItem fontSize="lg" alignItems="center" display="flex">
-                  <ListIcon icon="check" color="green.500" />
-                  Access to private community
-                </ListItem>
-                <ListItem fontSize="lg" alignItems="center" display="flex">
-                  <ListIcon icon="check" color="green.500" />
-                  Exclusive discounts
-                </ListItem>
-                <ListItem fontSize="lg" alignItems="center" display="flex">
-                  <ListIcon icon="check" color="green.500" />
-                  Complete video course
-                </ListItem>
-                <ListItem fontSize="lg" alignItems="center" display="flex">
-                  <ListIcon icon="check" color="green.500" />
-                  Written tutorial
-                </ListItem>
-                <ListItem fontSize="lg" alignItems="center" display="flex">
-                  <ListIcon icon="check" color="green.500" />
-                  Source code
-                </ListItem>
-              </List>
-            </Box>
-          </Link>
-          <Link
-            isExternal
-            href="https://gumroad.com/l/TifxZ"
-            textDecoration="none"
-            transition="all 0.1s ease-in"
-            borderRadius={8}
-            onClick={() => trackGoal('4MXS33EJ')}
-            mb={4}
-            w="full"
-            _hover={{
-              textDecoration: 'none',
-              boxShadow: '0px 20px 40px rgba(0, 0, 0, 0.05)'
-            }}
-          >
-            <Box
-              borderRadius={8}
-              w="full"
-              border="1px solid"
-              borderColor="gray.200"
-              p={4}
+              Get excited! The next 15 live streams will teach you how to build
+              a real SaaS application.
+            </VideoCard>
+            <VideoCard
+              title="Introduction to React 2025"
+              length="1:02:45"
+              href="https://youtu.be/MxR5I5_hOKk?list=PL6bwFJ82M6FXgctyoWXqj7H0GK8_YIeF1&t=155&index=2"
             >
-              <Badge fontSize="md" mb={4}>
-                $39
-                <Box textDecoration="line-through" display="inline" ml={1}>
-                  ($89)
-                </Box>
-              </Badge>
-              <Heading
-                letterSpacing="tight"
-                as="h5"
-                size="lg"
-                fontWeight="bold"
-              >
-                Starter
-              </Heading>
-              <List spacing={1} mt={4}>
-                <ListItem fontSize="lg" alignItems="center" display="flex">
-                  → Written tutorial
-                </ListItem>
-                <ListItem fontSize="lg" alignItems="center" display="flex">
-                  → Source code
-                </ListItem>
-              </List>
-            </Box>
-          </Link>
+              An introduction to the course and an explanation of what we'll
+              build.
+            </VideoCard>
+            <VideoCard
+              title="Firestore, Chakra UI, Absolute Imports"
+              length="54:22"
+              href="https://www.youtube.com/watch?v=AGl52moyISU&list=PL6bwFJ82M6FXgctyoWXqj7H0GK8_YIeF1&index=3"
+            >
+              Learn about best practices with Next.js data fetching and
+              configure Firestore and Chakra UI.
+            </VideoCard>
+            <VideoCard
+              title="Designing & Building the Dashboard"
+              length="1:08:30"
+              href="https://www.youtube.com/watch?v=3g6-v3_BNbM&list=PL6bwFJ82M6FXgctyoWXqj7H0GK8_YIeF1&index=4"
+            >
+              Convert Figma designs into real React code and build a dashboard
+              page.
+            </VideoCard>
+            <VideoCard
+              title="Firebase Admin with Next.js + SWR"
+              length="1:13:45"
+              href="https://www.youtube.com/watch?v=u8iv_yhSRI8&list=PL6bwFJ82M6FXgctyoWXqj7H0GK8_YIeF1&index=5"
+            >
+              Configure Firebase server-side and use API routes + SWR to fetch
+              and mutate data.
+            </VideoCard>
+            <VideoCard
+              title="Creating Feedback Pages"
+              length="51:35"
+              href="https://www.youtube.com/watch?v=1nRWL5ljOqU&list=PL6bwFJ82M6FXgctyoWXqj7H0GK8_YIeF1&index=6"
+            >
+              Fetch data from Firestore with getStaticProps / getStaticPaths and
+              save user feedback with a form.
+            </VideoCard>
+            <VideoCard
+              title="Authentication on API Routes (Firebase JWT)"
+              length="45:45"
+              href="https://www.youtube.com/watch?v=OndBtUUD8XE&list=PL6bwFJ82M6FXgctyoWXqj7H0GK8_YIeF1&index=7"
+            >
+              Protect Next.js API routes and redirect to the dashboard. We also
+              learn about Incremental Static Regeneration.
+            </VideoCard>
+            <VideoCard
+              title="User Feedback Page + Google Sign In"
+              length="51:40"
+              href="https://www.youtube.com/watch?v=Fvoi6g52bk0&list=PL6bwFJ82M6FXgctyoWXqj7H0GK8_YIeF1&index=8"
+            >
+              Learn how to reuse layouts and styles, plus add Sign In with
+              Google using Firebase Authentication.
+            </VideoCard>
+            <VideoCard
+              title="Squashing bugs, integration tests, and logging"
+              length="55:45"
+              href="https://www.youtube.com/watch?v=3YTv_MhmcMI&list=PL6bwFJ82M6FXgctyoWXqj7H0GK8_YIeF1&index=9"
+            >
+              Set up an integration test on PR runs with Checkly / Puppeteer and
+              persist logs to to Logflare.
+            </VideoCard>
+            <VideoCard
+              title="Subscription Payments with Stripe"
+              length="1:46:37"
+              href="https://www.youtube.com/watch?v=d9HGdw8zwvc&list=PL6bwFJ82M6FXgctyoWXqj7H0GK8_YIeF1&index=10"
+            >
+              Connect to Stripe to allow users to checkout and manage their
+              subscriptions.
+            </VideoCard>
+            <VideoCard
+              title="Managing Site Feedback"
+              length="1:12:39"
+              href="https://www.youtube.com/watch?v=F4T1ym2QNmE&list=PL6bwFJ82M6FXgctyoWXqj7H0GK8_YIeF1&index=12"
+            >
+              Creating, updating, and deleting feedback in Firebase through the
+              user dashboard.
+            </VideoCard>
+            <VideoCard
+              title="Embed Iframe + Edit/Delete Site"
+              length="1:26:20"
+              href="https://www.youtube.com/watch?v=Mmt2IbKzIu4&list=PL6bwFJ82M6FXgctyoWXqj7H0GK8_YIeF1&index=13"
+            >
+              Manage a site's settings through a Modal and mutate your cache
+              with SWR.
+            </VideoCard>
+            <VideoCard
+              title="Going to Production + Testing With Checkly"
+              length="1:09:20"
+              href="https://www.youtube.com/watch?v=huQi7Gnj7zo&list=PL6bwFJ82M6FXgctyoWXqj7H0GK8_YIeF1&index=14"
+            >
+              Launch the product and write a login end-to-end test with Checkly
+              and Puppeteer.
+            </VideoCard>
+            <VideoCard
+              title="Adding MDX"
+              length="42:40"
+              href="https://www.youtube.com/watch?v=pQDh_82-MXs&list=PL6bwFJ82M6FXgctyoWXqj7H0GK8_YIeF1&index=15"
+            >
+              Use MDX to create the terms and privacy policy pages for the
+              application.
+            </VideoCard>
+            <VideoCard
+              title="Launching Your Product & Conclusion"
+              length="6:41"
+              href="https://www.youtube.com/watch?v=3Y_Kl00mcvw&list=PL6bwFJ82M6FXgctyoWXqj7H0GK8_YIeF1&index=16"
+            >
+              That's a wrap! Some final thoughts on how to launch your product.
+            </VideoCard>
+          </Stack>
           <Divider borderColor="gray.200" my={8} w="100%" />
           <Subscribe />
           <Flex align="center">
