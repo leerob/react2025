@@ -18,9 +18,9 @@ Let's create a shared layout component that all dashboard pages can re-use. This
 Remember our [authentication hook](/use-auth) we created earlier? We can use that to fetch the currently logged in user.
 
 ```js
-import { useAuth } from '@/utils/auth'
+import { useAuth } from '@/utils/auth';
 
-const { user } = useAuth()
+const { user } = useAuth();
 ```
 
 Then, we need to use Chakra's components to style a navigation bar containing:
@@ -34,7 +34,7 @@ When creating our `User` schema, we included `photoUrl` pulled from the social p
 **`components/DashboardShell.js`**
 
 ```js
-import React from 'react'
+import React from 'react';
 import {
   Box,
   Breadcrumb,
@@ -44,13 +44,13 @@ import {
   Button,
   Flex,
   Link,
-  Avatar,
-} from '@chakra-ui/core'
+  Avatar
+} from '@chakra-ui/core';
 
-import { useAuth } from '@/utils/auth'
+import { useAuth } from '@/utils/auth';
 
 const DashboardShell = ({ children }) => {
-  const { user } = useAuth()
+  const { user } = useAuth();
 
   return (
     <Box backgroundColor="gray.100" h="100vh">
@@ -90,7 +90,7 @@ const DashboardShell = ({ children }) => {
             _hover={{ bg: 'gray.700' }}
             _active={{
               bg: 'gray.800',
-              transform: 'scale(0.95)',
+              transform: 'scale(0.95)'
             }}
           >
             + Add Site
@@ -99,15 +99,8 @@ const DashboardShell = ({ children }) => {
         {children}
       </Flex>
     </Box>
-  )
-}
+  );
+};
 
-export default DashboardShell
+export default DashboardShell;
 ```
-
-<!-- ### Logged Out Users
-
-What happens if a user tries to hit this route logged out? Right now, it wouldn't display anything. Let's improve that experience by redirecting unauthenticated users back to the home page.
-
-```js
-``` -->
