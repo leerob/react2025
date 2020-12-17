@@ -63,10 +63,10 @@ export default admin.firestore();
 
 ## Retrieving Data
 
-Finally, lets create `lib/db-admin.js` to fetch data from Firestore.
+Finally, lets create `utils/db-admin.js` to fetch data from Firestore.
 This function will fetch all `Feedback` where the `siteId` matches.
 
-**`lib/db-admin.js`**
+**`utils/db-admin.js`**
 
 ```js
 import db from './firebase-admin';
