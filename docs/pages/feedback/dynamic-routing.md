@@ -10,6 +10,7 @@ For example, let's set up a new file using dynamic routing.
 
 ```js {4}
 import { useRouter } from 'next/router'
+import { Box } from '@chakra-ui/core'
 
 export default function FeedbackPage() {
   const router = useRouter()
