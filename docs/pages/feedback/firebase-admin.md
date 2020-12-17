@@ -61,6 +61,10 @@ if (!admin.apps.length) {
 export default admin.firestore();
 ```
 
+<Callout>
+Your databaseURL should be something like `'https://your-app-9172h.firebaseio.com'`
+</Callout>
+
 ## Retrieving Data
 
 Finally, lets create `utils/db-admin.js` to fetch data from Firestore.
