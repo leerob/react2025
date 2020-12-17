@@ -21,14 +21,16 @@ Now, we need a form on the client-side to accept input. Since we've already set 
 **`pages/p/[siteId].js`**
 
 ```js
+import { useRef } from 'react'
 import { Box, FormControl, FormLabel, Input, Button } from '@chakra-ui/core'
 
-import { useAuth } from '../../utils/auth'
+import { useAuth } from '@/lib/auth'
 
 // ...Rest of the file, redacted to focus on the return
 
 const FeedbackPage = ({ initialFeedback }) => {
-  const user = useAuth()
+  const auth = useAuth()
+  const inputEl = useRef(null)
 
   return (
     <Box
@@ -107,7 +109,7 @@ Finally, we need to save the feedback using the `createFeedback` function we mad
 **`pages/p/[siteId].js`**
 
 ```js {40,69,80}
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import { Box, FormControl, FormLabel, Input, Button } from '@chakra-ui/core'
 
@@ -146,7 +148,11 @@ const FeedbackPage = ({ initialFeedback }) => {
   const auth = useAuth()
   const router = useRouter()
   const inputEl = useRef(null)
-  const [allFeedback, setAllFeedback] = useState(initialFeedback)
+  const [allFeedback, setAllFeedback] = useState([])
+
+  useEffect(() => {
+    setAllFeedback(initialFeedback)
+  }, [initialFeedback])
 
   const onSubmit = (e) => {
     e.preventDefault()
@@ -162,7 +168,7 @@ const FeedbackPage = ({ initialFeedback }) => {
     }
 
     inputEl.current.value = ''
-    setAllFeedback([newFeedback, ...allFeedback])
+    setAllFeedback((currentFeedback) => [newFeedback, ...currentFeedback])
     createFeedback(newFeedback)
   }
 
@@ -185,9 +191,13 @@ const FeedbackPage = ({ initialFeedback }) => {
           </FormControl>
         </Box>
       )}
+
       {allFeedback &&
         allFeedback.map((feedback) => (
-          <Feedback key={feedback.id} {...feedback} />
+          <Feedback
+            key={feedback.id || new Date().getTime().toString()}
+            {...feedback}
+          />
         ))}
     </Box>
   )

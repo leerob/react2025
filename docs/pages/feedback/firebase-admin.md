@@ -62,7 +62,7 @@ export default admin.firestore();
 ```
 
 <Callout>
-Your databaseURL should be something like `'https://your-app-9172h.firebaseio.com'`
+By default, Firebase sets your databaseURL to `'https://your-app-id.firebaseio.com'`
 </Callout>
 
 ## Retrieving Data
