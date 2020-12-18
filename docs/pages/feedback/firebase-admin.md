@@ -40,9 +40,9 @@ You will need to restart your application to load new environment variables.
 
 ## Connecting to Firebase
 
-Create a new file `utils/firebase-admin.js` to initialize the application and establish a connection.
+Create a new file `lib/firebase-admin.js` to initialize the application and establish a connection.
 
-**`utils/firebase-admin.js`**
+**`lib/firebase-admin.js`**
 
 ```javascript
 import admin from 'firebase-admin';
@@ -67,10 +67,10 @@ By default, Firebase sets your databaseURL to `'https://your-app-id.firebaseio.c
 
 ## Retrieving Data
 
-Finally, lets create `utils/db-admin.js` to fetch data from Firestore.
+Finally, lets create `lib/db-admin.js` to fetch data from Firestore.
 This function will fetch all `Feedback` where the `siteId` matches.
 
-**`utils/db-admin.js`**
+**`lib/db-admin.js`**
 
 ```js
 import db from './firebase-admin';

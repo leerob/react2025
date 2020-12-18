@@ -48,9 +48,9 @@ For example, Next.js will replace `process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID` 
 
 ### Firebase Client
 
-We can now securely connect to Firebase. Create a new file `utils/firebase.js` to initialize the application and establish a connection. We only need to establish the connection once, hence the `if` statement.
+We can now securely connect to Firebase. Create a new file `lib/firebase.js` to initialize the application and establish a connection. We only need to establish the connection once, hence the `if` statement.
 
-**`utils/firebase.js`**
+**`lib/firebase.js`**
 
 ```javascript
 import * as firebase from 'firebase/app';

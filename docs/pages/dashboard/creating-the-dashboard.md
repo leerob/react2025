@@ -18,7 +18,7 @@ Let's create a shared layout component that all dashboard pages can re-use. This
 Remember our [authentication hook](/use-auth) we created earlier? We can use that to fetch the currently logged in user.
 
 ```js
-import { useAuth } from '@/utils/auth';
+import { useAuth } from '@/lib/auth';
 
 const { user } = useAuth();
 ```
@@ -47,7 +47,7 @@ import {
   Avatar
 } from '@chakra-ui/core';
 
-import { useAuth } from '@/utils/auth';
+import { useAuth } from '@/lib/auth';
 
 const DashboardShell = ({ children }) => {
   const { user } = useAuth();
