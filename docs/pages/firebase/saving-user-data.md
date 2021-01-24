@@ -6,9 +6,9 @@ For this product, we want to know what pricing tier the user has so we can deter
 
 ### Create / Update User
 
-Let's create a new file `utils/db.js` to perform [CRUD actions](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) on the database.
+Let's create a new file `lib/db.js` to perform [CRUD actions](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) on the database.
 
-**`utils/db.js`**
+**`lib/db.js`**
 
 ```js
 import firebase from './firebase'
@@ -31,7 +31,7 @@ export function createUser(uid, data) {
 
 Now, let's consume the `createUser` function inside our `useAuth` hook.
 
-**`utils/auth.js`**
+**`lib/auth.js`**
 
 ```javascript {3,23}
 import React, { useState, useEffect, useContext, createContext } from 'react'

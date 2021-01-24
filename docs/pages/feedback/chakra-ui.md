@@ -51,7 +51,7 @@ Next.js uses the [`App` component](https://nextjs.org/docs/advanced-features/cus
 
 ```js
 import { ThemeProvider, CSSReset } from '@chakra-ui/core'
-import { AuthProvider } from '../utils/auth'
+import { AuthProvider } from '../lib/auth'
 import theme from '../styles/theme'
 
 const App = ({ Component, pageProps }) => {
