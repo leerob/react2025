@@ -1,6 +1,6 @@
 # React 2025
 
-React 2025 is a course that will show the journey from zero lines of code to production for a real SaaS app called Fast Feedback. This is the source code of the course's landing page and docs site.
+React 2025 is a course that will show the journey from zero lines of code to production for a real SaaS app called Fast Feedback. This repo holds the source code of the course's landing page and docs site.
 
 ## Running Locally
 
