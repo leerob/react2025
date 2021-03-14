@@ -77,7 +77,7 @@ export default DocsLayout
 
 This would allow you to create a `Navbar`/`Footer` for you website and have it persist as a layout across all of your documentation pages. Finally, let's add a "provider" that will tell MDX which components to use when rendering the Markdown file. For example, `**hello**` should translate to bold component. We want our provider to be at the top-level of our application, so let's modify `_app.js`.
 
-**`pages/_app_.js`**
+**`pages/_app.js`**
 
 ```jsx
 import { MDXProvider } from '@mdx-js/react'

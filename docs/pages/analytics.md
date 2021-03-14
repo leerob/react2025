@@ -55,7 +55,7 @@ Now that we can track page views, let's also track specific goals. For example, 
 
 Fathom has [great documentation](https://usefathom.com/support/goals) on setting goals. The specific example we'll look at will be `onClick` of a button. First, create a utility for tracking goals.
 
-**`utils/analytics.js`**
+**`lib/analytics.js`**
 
 ```js
 export const trackGoal = (id) => {

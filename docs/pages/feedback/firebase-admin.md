@@ -40,9 +40,9 @@ You will need to restart your application to load new environment variables.
 
 ## Connecting to Firebase
 
-Create a new file `utils/firebase-admin.js` to initialize the application and establish a connection.
+Create a new file `lib/firebase-admin.js` to initialize the application and establish a connection.
 
-**`utils/firebase-admin.js`**
+**`lib/firebase-admin.js`**
 
 ```javascript
 import admin from 'firebase-admin';
@@ -60,6 +60,10 @@ if (!admin.apps.length) {
 
 export default admin.firestore();
 ```
+
+<Callout>
+By default, Firebase sets your databaseURL to `'https://your-app-id.firebaseio.com'`
+</Callout>
 
 ## Retrieving Data
 

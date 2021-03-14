@@ -10,9 +10,9 @@ The API for `useAuth` is simple to start:
 
 To make these values available throughout our entire application, we'll use [React Context](https://reactjs.org/docs/context.html). Context provides a way to pass data through the component tree without having to pass props down manually at every level.
 
-Context is designed to share data that can be considered “global” for a tree of React components, like the current user. Let's create a new file `utils/auth.js` and create a Context provider.
+Context is designed to share data that can be considered “global” for a tree of React components, like the current user. Let's create a new file `lib/auth.js` and create a Context provider.
 
-**`utils/auth.js`**
+**`lib/auth.js`**
 
 ```javascript {11,12,13}
 import React, { useState, useEffect, useContext, createContext } from 'react'
@@ -40,7 +40,7 @@ function useProvideAuth() {
 
 You'll notice we've defined our hook's API, but have not created the functions. Let's add the logic to sign in and out and persist the current user.
 
-**`utils/auth.js`**
+**`lib/auth.js`**
 
 ```javascript
 import React, { useState, useEffect, useContext, createContext } from 'react'
@@ -128,7 +128,7 @@ First, we need to wrap our application with `AuthProvider` to access the context
 **`pages/_app.js`**
 
 ```javascript
-import { AuthProvider } from '../utils/auth'
+import { AuthProvider } from '../lib/auth'
 
 const App = ({ Component, pageProps }) => {
   return (
@@ -146,7 +146,7 @@ Then, modify the file `pages/index.js` to include the following code.
 **`pages/index.js`**
 
 ```javascript
-import { useAuth } from '../utils/auth'
+import { useAuth } from '../lib/auth'
 
 export default function Index() {
   const auth = useAuth()
@@ -196,7 +196,7 @@ Now that we have a reusable hook to log into our application, it's very easy to 
 
 Then, we can add a new function to `useAuth` to sign in with Google. We can also extend these functions to add redirects on success.
 
-**`utils/auth.js`**
+**`lib/auth.js`**
 
 ```js
 import Router from 'next/router'

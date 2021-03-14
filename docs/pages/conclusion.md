@@ -17,6 +17,6 @@ I'd love to showcase products students have built with the course. Email `me@lee
 
 - [DevSkills – Anton Fenske](https://devskills.co/)
 - [Plaiceholder – Joe Bell](https://plaiceholder.co/)
-- [Paprback – mitul](https://www.loom.com/share/f009084dacca4ba0bafc36e68c5cffc8)
+- [Paprback – Mitul Shah](https://alpha.paprback.co)
 - [Presentation Helper – José Donato](https://presentation-helper.vercel.app/)
 - [Election Dashboard – Matt Harvey](https://t.co/TgfQl3xjDT?amp=1)
