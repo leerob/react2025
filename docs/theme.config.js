@@ -1,7 +1,7 @@
 export default {
   repository: 'https://github.com/leerob/react2025',
   docsRepository: 'https://github.com/leerob/react2025',
-  branch: 'master',
+  branch: 'main',
   path: '/docs',
   titleSuffix: ' – React 2025',
   nextLinks: true,
