@@ -7,7 +7,6 @@ export default {
   nextLinks: true,
   prevLinks: true,
   search: true,
-  UNSTABLE_stork: true,
   darkMode: true,
   footer: true,
   footerText: `${new Date().getFullYear()} © Lee Robinson.`,
