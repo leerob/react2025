@@ -4,6 +4,3 @@
 node_modules
 .env.local
 .vercel
-
-docs/public/*.st
-docs/public/*.toml

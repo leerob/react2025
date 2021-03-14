@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "next",
-    "build": "STORK_PATH=$(pwd)/bin/stork.bin next build"
+    "build": "next build"
   },
   "author": "Lee Robinson",
   "license": "MIT",
