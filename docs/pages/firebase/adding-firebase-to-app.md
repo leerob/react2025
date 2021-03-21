@@ -53,7 +53,7 @@ We can now securely connect to Firebase. Create a new file `lib/firebase.js` to 
 **`lib/firebase.js`**
 
 ```javascript
-import * as firebase from 'firebase/app';
+import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/functions';
 import 'firebase/firestore';
