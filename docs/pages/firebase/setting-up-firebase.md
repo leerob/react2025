@@ -13,7 +13,7 @@ We'll utilize two features of Firebase in this course.
 
 - If you do not have a Firebase account, create one first.
 - Create a new project.
-- Navigate to **Cloud Firestore** and click **Create Database**.
+- Navigate to **Firestore Database** and click **Create Database**.
 - Start in test mode and click **Next**.
   ![Create Firebase Database](/create-db.png)
 - Choose your database location and click **Enable**.
