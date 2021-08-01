@@ -1,6 +1,6 @@
 # Customer Portal
 
-We'll also use [Stripe Customer Portral](https://stripe.com/docs/billing/subscriptions/customer-portal). The portal provides subscription and billing management features that allow your customers to:
+We'll also use [Stripe Customer Portal](https://stripe.com/docs/billing/subscriptions/customer-portal). The portal provides subscription and billing management features that allow your customers to:
 
 - Update subscriptions, including upgrading and downgrading their subscriptions
 - Cancel subscriptions, immediately or at the end of a billing period
