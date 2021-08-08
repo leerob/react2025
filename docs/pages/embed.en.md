@@ -26,7 +26,7 @@ import { Box, Text } from '@chakra-ui/core'
 import Feedback from '@/components/Feedback'
 import { getAllFeedback, getAllSites, getSite } from '@/lib/db-admin'
 
-export async function getStaticProps(context) {
+ export async function getStaticProps(context) {
   // Destructure [...site], which is an array, to get the id and route
   const [siteId, route] = context.params.site
   // We can update `getAllFeedback` to filter by `route`

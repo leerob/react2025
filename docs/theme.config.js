@@ -1,6 +1,6 @@
 export default {
-  repository: 'https://github.com/leerob/react2025',
-  docsRepository: 'https://github.com/leerob/react2025',
+  github: 'https://github.com/leerob/react2025',
+  docsRepositoryBase: 'https://github.com/leerob/react2025',
   branch: 'main',
   path: '/docs',
   titleSuffix: ' – React 2025',
@@ -50,5 +50,9 @@ export default {
       <meta name="apple-mobile-web-app-title" content="React 2025" />
       <link href="/favicon.ico" rel="shortcut icon" />
     </>
-  )
+  ),
+  i18n: [
+    { locale: 'en', text: 'English' },
+    { locale: 'es', text: 'Español' }
+  ]
 };

@@ -58,7 +58,7 @@ function Products({ products }) {
   )
 }
 
-export async function getStaticProps() {
+ export async function getStaticProps() {
   return {
     props: {
       products: await getProductsFromCMS(),
@@ -84,7 +84,7 @@ function Product({ product }) {
   // Render product
 }
 
-export async function getStaticProps() {
+ export async function getStaticProps() {
   return {
     props: {
       product: await getProductFromCMS(),
@@ -117,7 +117,7 @@ Your e-commerce platform has grown significantly. Instead of 100 products, you n
 - After the page is generated, the updated product list is shown.
 
 ```js
-export async function getStaticProps() {
+ export async function getStaticProps() {
   return {
     products: await getProductsFromCMS(),
     revalidate: 60,
