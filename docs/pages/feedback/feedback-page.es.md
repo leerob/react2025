@@ -1,10 +1,10 @@
-# Feedback Page
+# Página de Feedback
 
-Now that we have the base for our feedback page, let's add some more logic! I'll break down each piece individually, then show the completed example at the end.
+Ahora que tenemos la base para nuestra página de feedback, ¡vamos a añadir algo de lógica! Desglosaré cada componente individualmente, para luego mostrar el ejemplo completo al final.
 
-### Creating Feedback
+### Creando Feedback
 
-We want to have a text input allowing users to add feedback, as well as a button to submit feedback. Then, we can create the feedback on the client-side using Firebase. First, let's make the Firebase query.
+Queremos tener un campo de entrada de texto que permita a los usuarios añadir feedback, así como un botón de enviar feedback. Para esto, podemos crear el feedback en el lado del cliente utilizando Firebase. En primer lugar, vamos a hacer la consulta o _query_ en Firebase.
 
 **`lib/db.js`**
 
@@ -14,9 +14,9 @@ export function createFeedback(data) {
 }
 ```
 
-### Feedback Form
+### Formulario de Feedback
 
-Now, we need a form on the client-side to accept input. Since we've already set up Chakra UI, this becomes much easier! We only want to show the text input if a user is logged in. We can utilize our `useAuth` hook for this.
+Ahora necesitamos un formulario en el lado del cliente que acepte datos de entrada. Dado que ya hemos configurado Chakra UI, esto se vuelve mucho más sencillo. Además, queremos mostrar este campo de texto solo si el usuario ha iniciado sesión. Para esto, podemos utilizar el hook de `useAuth`.
 
 **`pages/p/[siteId].js`**
 
@@ -63,15 +63,15 @@ const FeedbackPage = ({ initialFeedback }) => {
 export default FeedbackPage
 ```
 
-### Feedback Component
+### Componente de Feedback
 
-The `Feedback` component is a purely presentational component. It uses `date-fns` to parse our ISO timestamp and format it. First, install `date-fns`.
+El componente de `Feedback` es un componente puramente de presentación. Utiliza `date-fns` para para analizar nuestra fecha en formato ISO y formatearla. Primero, instalamos `date-fns`.
 
 ```bash
 $ yarn add date-fns
 ```
 
-Then, create the `Feedback` component.
+Después, creamos el componente `Feedback`.
 
 **`components/Feedback.js`**
 
@@ -96,15 +96,15 @@ const Feedback = ({ author, text, createdAt }) => (
 export default Feedback
 ```
 
-### Saving Feedback
+### Guardando Feedback
 
-Finally, we need to save the feedback using the `createFeedback` function we made earlier. By adding an `onSubmit` handler to our form, this will get triggered when the button with `type="submit"` is clicked. Let's step through `onSubmit`.
+Finalmente, necesitamos guardar el feedback usando la función `createFeedback` que hicimos previamente. Añadiendo el manejador `onSubmit` a nuestro formulario, se activará cuando se haga click sobre el botón `type="submit"`. Vamos a ver más sobre `onSubmit`.
 
-- First, we prevent the default behavior of a form reloading the page.
-- We create the new feedback object to save to the database.
-- We clear out the text input.
-- We use React State to add the new feedback to the list so it appears it was added instantly.
-- We actually save the feedback in Firestore.
+- Primero, evitamos el comportamiento predeterminado de un formulario que recarga la página.
+- Creamos el nuevo objeto de feedback para guardar en la base de datos.
+- Limpiamos la entrada de texto.
+- Utilizamos React State para añadir el nuevo feedback a la lista, de forma que parezca que se ha añadido instantáneamente.
+- Guardamos el feeback en Firestore.
 
 **`pages/p/[siteId].js`**
 
@@ -118,7 +118,7 @@ import { useAuth } from '@/lib/auth'
 import { createFeedback } from '@/lib/db'
 import { getAllFeedback, getAllSites } from '@/lib/db-admin'
 
-export async function getStaticProps(context) {
+ export async function getStaticProps(context) {
   const siteId = context.params.siteId
   const { feedback } = await getAllFeedback(siteId)
 

@@ -47,7 +47,7 @@ import { useRouter } from 'next/router'
 
 import { getAllFeedback, getAllSites } from '../../lib/db-admin'
 
-export async function getStaticProps(context) {
+ export async function getStaticProps(context) {
   const siteId = context.params.siteId
   const { feedback } = await getAllFeedback(siteId)
 
