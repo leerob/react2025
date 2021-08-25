@@ -84,7 +84,7 @@ This "JavaScript fatigue" prompted the creation of [Create React App](https://gi
 
 ### Hybrid Approach
 
-Next is unique among front-end and JAMstack frameworks because it seamlessly allows developers to grow from static sites to server-rendered sites as requirements change. No matter what [data fetching](/data-fetching) strategy you need, you can stay within the bounds of the framework.
+Next is unique among front-end and JAMstack frameworks because it seamlessly allows developers to grow from static sites to server-rendered sites as requirements change. No matter what [data fetching](/fundamentals/data-fetching) strategy you need, you can stay within the bounds of the framework.
 
 - **Static Sites** – Blazing-fast JAMstack websites.
 - **Server Side Rendering** – Great for SEO and load performance.

@@ -13,7 +13,7 @@ For example, [Vercel's site](https://vercel.com/) uses two different data-fetc
 With [Next.js](https://nextjs.org/), you can change your data fetching strategy on a [per-page basis](https://nextjs.org/docs/basic-features/pages). This section explains when to use each strategy as your application evolves.
 
 - [Static Generation](#static-generation)
-- [Incremental Static Regeneration (Beta)](#incremental-static-regeneration-beta)
+- [Incremental Static Regeneration (Beta)](#incremental-static-regeneration)
 - [Client-Side Fetching (SWR)](#client-side-fetching-swr)
 - [Server-Side Rendering (SSR)](#server-side-rendering-ssr)
 

@@ -78,7 +78,7 @@ Esta "fatiga de JavaScript" promovió la creación de [Create React App](https:/
 
 ### Enfoque híbrido
 
-Next es único entre los frameworks de front-end y JAMstack porque permite sin problemas a los desarrolladores crecer desde sitios estáticos a sitios rederizados en el lado del servidor a medida que los requerimientos cambian. No importa que estrategia de [data fetching](/data-fetching) necesites, puedes permanencer dentro de los límites del framework.
+Next es único entre los frameworks de front-end y JAMstack porque permite sin problemas a los desarrolladores crecer desde sitios estáticos a sitios rederizados en el lado del servidor a medida que los requerimientos cambian. No importa que estrategia de [data fetching](/fundamentals/data-fetching) necesites, puedes permanencer dentro de los límites del framework.
 
 - **Sitios Estáticos** – Sitios web JAMstack ultrarápidos.
 - **Renderizado en el Lado del Servidor** – Excelente para SEO y rendimiento de carga.
