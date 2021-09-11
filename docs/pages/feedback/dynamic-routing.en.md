@@ -76,7 +76,7 @@ export async function getStaticPaths() {
 const FeedbackPage = ({ initialFeedback }) => {
   const router = useRouter()
 
-  return <Box>Site ID: ${router.query.siteId}</Box>
+  return <Box>Site ID: {router.query.siteId}</Box>
 }
 
 export default FeedbackPage
