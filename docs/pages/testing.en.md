@@ -247,7 +247,7 @@ await browser.close()
 ### Puppeteer Recorder
 
 You can use the [Puppeteer Recorder](https://github.com/checkly/puppeteer-recorder) to record your browser interactions and automatically
-generate a Puppeteer script. This sounds create in theory, but doesn't work
+generate a Puppeteer script. This sounds great in theory, but doesn't work
 well with CSS-in-JS, because it has auto-generated class names that change.
 
 ## Dashboard
