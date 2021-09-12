@@ -15,7 +15,7 @@ import { Box } from '@chakra-ui/core'
 export default function FeedbackPage() {
   const router = useRouter()
 
-  return <Box>Page ID: ${router.query.siteId}</Box>
+  return <Box>Page ID: {router.query.siteId}</Box>
 }
 ```
 
@@ -76,7 +76,7 @@ export async function getStaticPaths() {
 const FeedbackPage = ({ initialFeedback }) => {
   const router = useRouter()
 
-  return <Box>Site ID: ${router.query.siteId}</Box>
+  return <Box>Site ID: {router.query.siteId}</Box>
 }
 
 export default FeedbackPage
