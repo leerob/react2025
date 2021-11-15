@@ -15,7 +15,7 @@ export type FormState = {
 function LoadingSpinner() {
   return (
     <svg
-      className="animate-spin h-5 w-5 text-gray-900 dark:text-gray-100"
+      className="animate-spin h-6 text-gray-100"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
@@ -39,7 +39,7 @@ function LoadingSpinner() {
 
 function SuccessMessage({ children }) {
   return (
-    <p className="flex items-center text-sm font-bold text-green-700 dark:text-green-400">
+    <p className="flex items-center text-sm font-bold text-green-700">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
@@ -59,7 +59,7 @@ function SuccessMessage({ children }) {
 
 function ErrorMessage({ children }) {
   return (
-    <p className="flex items-center text-sm font-bold text-red-800 dark:text-red-400">
+    <p className="flex items-center text-sm font-bold text-red-800">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
@@ -116,7 +116,7 @@ export default function Subscribe() {
       <p className="font-medium text-sm mb-2">
         Join my newsletter to hear about new courses, articles, and content.
       </p>
-      <form className="relative" onSubmit={subscribe}>
+      <form className="relative mb-4" onSubmit={subscribe}>
         <input
           ref={inputEl}
           aria-label="Email for newsletter"
@@ -129,7 +129,7 @@ export default function Subscribe() {
         <div className="absolute top-0 z-10 right-0 mt-1 mr-1">
           <button
             type="submit"
-            className="text-white px-4 py-2 rounded-md font-medium bg-gray-900 hover:bg-gray-700 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue transition duration-150 ease-in-out"
+            className="w-[130px] flex justify-center text-white px-4 py-2 rounded-md font-medium bg-gray-900 hover:bg-gray-700 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue transition duration-150 ease-in-out"
           >
             {form.state === Form.Loading ? <LoadingSpinner /> : 'Get Updates'}
           </button>
