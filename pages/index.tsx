@@ -54,6 +54,7 @@ const VideoCard = ({ title, length, href, children }) => (
     >
       <div className="flex mr-8 shadow-lg w-[230px] max-w-[230px] md:w-full">
         <Image
+          alt="screen frame of video"
           className="rounded-lg"
           width={230}
           height={150}
@@ -380,7 +381,7 @@ export default function Index() {
           <div className="flex items-center mt-6">
             <div className="mr-4">
               <Image
-                alt="Lee Robinson"
+                alt="Headshot of Lee Robinson"
                 src={avatar}
                 placeholder="blur"
                 width={72}
