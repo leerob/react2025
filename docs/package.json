@@ -8,7 +8,7 @@
   "dependencies": {
     "next": "^12.0.3",
     "nextra": "^1.1.0",
-    "nextra-theme-docs": "^1.2.6",
+    "nextra-theme-docs": "^1.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
