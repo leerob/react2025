@@ -1,33 +1,35 @@
 {
   "name": "react2025",
   "description": "Build applications from the future, today.",
-  "version": "0.0.0",
+  "private": true,
   "author": {
     "name": "Lee Robinson",
     "email": "me@leerob.io",
     "url": "https://leerob.io"
   },
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/leerob/react2025.git"
-  },
   "scripts": {
-    "build": "next build",
     "dev": "next",
+    "build": "next build",
     "start": "next start"
   },
   "dependencies": {
-    "@chakra-ui/core": "0.7.0",
-    "@emotion/core": "10.0.28",
-    "@emotion/styled": "10.0.27",
-    "emotion-theming": "10.0.27",
-    "next": "11.1.1",
-    "next-seo": "4.26.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "tailwindcss": "2.2.19"
   },
   "devDependencies": {
-    "prettier": "2.3.2"
+    "@types/react": "^17.0.34",
+    "autoprefixer": "10.4.0",
+    "postcss": "^8.3.11",
+    "prettier": "^2.4.1",
+    "typescript": "^4.4.4"
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "none"
   }
 }
