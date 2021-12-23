@@ -15,4 +15,4 @@ $ yarn dev
 
 - [Next.js](https://nextjs.org/)
 - [Vercel](https://vercel.com)
-- [Chakra UI](https://chakra-ui.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
