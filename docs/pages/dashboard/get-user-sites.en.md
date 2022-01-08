@@ -7,11 +7,11 @@ To ensure the security of your site data, we need to verify the Firebase ID toke
 **`lib/auth.js`**
 
 ```js
-const user = formatUser(rawUser)
-const { token, ...userWithoutToken } = user
+const user = formatUser(rawUser);
+const { token, ...userWithoutToken } = user;
 
-createUser(user.uid, userWithoutToken)
-setUser(user)
+createUser(user.uid, userWithoutToken);
+setUser(user);
 
 // ..
 
@@ -22,9 +22,9 @@ const formatUser = async (user) => {
     name: user.displayName,
     token: user.xa,
     provider: user.providerData[0].providerId,
-    photoUrl: user.photoURL,
-  }
-}
+    photoUrl: user.photoURL
+  };
+};
 ```
 
 We don't need to save the token to the database, but we do want it available on the user object returned from `useAuth`. Now, we can forward this token to our API route. If there's a user (logged in), then forward the token to the specified route.
@@ -32,8 +32,8 @@ We don't need to save the token to the database, but we do want it available on 
 **`pages/sites.js`**
 
 ```js
-const { user } = useAuth()
-const { data } = useSWR(user ? ['/api/sites', user.token] : null, fetcher)
+const { user } = useAuth();
+const { data } = useSWR(user ? ['/api/sites', user.token] : null, fetcher);
 ```
 
 This requires a small change to our `fetcher` to forward the user token.
@@ -45,13 +45,13 @@ const fetcher = async (url, token) => {
   const res = await fetch(url, {
     method: 'GET',
     headers: new Headers({ 'Content-Type': 'application/json', token }),
-    credentials: 'same-origin',
-  })
+    credentials: 'same-origin'
+  });
 
-  return res.json()
-}
+  return res.json();
+};
 
-export default fetcher
+export default fetcher;
 ```
 
 ### Database Query
@@ -65,19 +65,19 @@ export async function getUserSites(uid) {
   const snapshot = await db
     .collection('sites')
     .where('authorId', '==', uid)
-    .get()
+    .get();
 
-  const sites = []
+  const sites = [];
 
   snapshot.forEach((doc) => {
-    sites.push({ id: doc.id, ...doc.data() })
-  })
+    sites.push({ id: doc.id, ...doc.data() });
+  });
 
   sites.sort((a, b) =>
     compareDesc(parseISO(a.createdAt), parseISO(b.createdAt))
-  )
+  );
 
-  return { sites }
+  return { sites };
 }
 ```
 
@@ -88,17 +88,21 @@ Inside our API route, we need to [verify the ID token](https://firebase.google.c
 **`lib/firebase-admin.js`**
 
 ```js
-import admin from 'firebase-admin'
+import admin from "firebase-admin";
 
 if (!admin.apps.length) {
-  admin.initializeApp({
-    credential: admin.credential.cert({
-      client_email: process.env.FIREBASE_CLIENT_EMAIL,
-      private_key: process.env.FIREBASE_PRIVATE_KEY,
-      project_id: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-    }),
-    databaseURL: 'https://fast-feedback-demo.firebaseio.com',
-  })
+  try {
+    admin.initializeApp({
+      credential: admin.credential.cert({
+        clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+        privateKey: process.env.FIREBASE_PRIVATE_KEY,
+        projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+      }),
+      databaseURL: 'YOUR_DATABASE_URL_HERE'
+    });
+  } catch (e: any) {
+    console.log(e.message);
+  }
 }
 
 const db = admin.firestore()
@@ -112,17 +116,17 @@ Now, we can securely fetch the given user's sites.
 **`api/sites.js`**
 
 ```js
-import { auth } from '@/lib/firebase-admin'
-import { getUserSites } from '@/lib/db-admin'
+import { auth } from '@/lib/firebase-admin';
+import { getUserSites } from '@/lib/db-admin';
 
 export default async (req, res) => {
   try {
-    const { uid } = await auth.verifyIdToken(req.headers.token)
-    const { sites } = await getUserSites(uid)
+    const { uid } = await auth.verifyIdToken(req.headers.token);
+    const { sites } = await getUserSites(uid);
 
-    res.status(200).json({ sites })
+    res.status(200).json({ sites });
   } catch (error) {
-    res.status(500).json({ error })
+    res.status(500).json({ error });
   }
-}
+};
 ```

@@ -27,23 +27,23 @@ Después de crear la sesión de Checkout, la extensión de Stripe para Firebase 
 **`lib/db.js`**
 
 ```js
-import firebase from './firebase';
+import { initFirebase, db } from './firebase';
+import { collection, addDoc } from 'firebase/firestore';
 import getStripe from './stripe';
 
 const firestore = firebase.firestore();
 
 export async function createCheckoutSession(uid) {
-  const checkoutSessionRef = await firestore
-    .collection('users')
-    .doc(uid)
-    .collection('checkout_sessions')
-    .add({
+  const checkoutSessionRef = await addDoc(
+    collection(db, `users/${uid}/chekout_sessions`),
+    {
       price: 'price_HLxRKYrVN3CVzy',
-      // This can be removed if you don't want promo codes
+      // Esto se puede eliminar si no desea códigos promocionales
       allow_promotion_codes: true,
       success_url: window.location.origin,
       cancel_url: window.location.origin
-    });
+    }
+  );
 
   checkoutSessionRef.onSnapshot(async (snap) => {
     const { sessionId } = snap.data();
@@ -115,14 +115,16 @@ Querrás mostrar esta vista solamente si el usuario no se encuentra en un plan d
 **`lib/auth.js`**
 
 ```js
+import { getAuth } from "firebase/auth";
 const user = await formatUser(rawUser);
+const auth = getAuth();
 
 ..
 ..
 
 const getStripeRole = async () => {
-  await firebase.auth().currentUser.getIdToken(true);
-  const decodedToken = await firebase.auth().currentUser.getIdTokenResult();
+  await auth.currentUser.getIdToken(true);
+  const decodedToken = await auth.currentUser.getIdTokenResult();
 
   return decodedToken.claims.stripeRole || 'free';
 };

@@ -118,11 +118,12 @@ Now, let's save this site when a user clicks "Create". First, we need to create 
 **`lib/db.js`**
 
 ```js
+import { collection, doc, setDoc } from "firebase/firestore"; 
 export function createSite(data) {
-  const site = firestore.collection('sites').doc()
-  site.set(data)
+  const siteRef = doc(collection(db, 'sites'))
+  setDoc(siteRef, data)
 
-  return site
+  return siteRef
 }
 ```
 

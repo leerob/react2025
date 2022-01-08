@@ -7,8 +7,10 @@ First, we need to target the correct document and forward a new set of values. T
 **`lib/db.js`**
 
 ```js
+import { db } from './firebase';
+import { doc, updateDoc } from 'firebase/firestore';
 export function updateFeedback(id, newValues) {
-  return firestore.collection('feedback').doc(id).update(newValues)
+  return updateDoc(doc(db, 'feedback', id), newValues);
 }
 ```
 
@@ -17,23 +19,23 @@ Finally, we can create a new component to use Chakra's `Switch`. When the switch
 **`components/FeedbackRow.js`**
 
 ```js
-import React, { useState } from 'react'
-import { Box, Code, Switch } from '@chakra-ui/core'
-import { mutate } from 'swr'
+import React, { useState } from 'react';
+import { Box, Code, Switch } from '@chakra-ui/core';
+import { mutate } from 'swr';
 
-import { Td } from './Table'
-import { useAuth } from '@/lib/auth'
-import { updateFeedback } from '@/lib/db'
-import DeleteFeedbackButton from './DeleteFeedbackButton'
+import { Td } from './Table';
+import { useAuth } from '@/lib/auth';
+import { updateFeedback } from '@/lib/db';
+import DeleteFeedbackButton from './DeleteFeedbackButton';
 
 const FeedbackRow = ({ id, author, text, route, status }) => {
-  const auth = useAuth()
-  const isChecked = status === 'active'
+  const auth = useAuth();
+  const isChecked = status === 'active';
 
   const toggleFeedback = async () => {
-    await updateFeedback(id, { status: isChecked ? 'pending' : 'active' })
-    mutate(['/api/feedback', auth.user.token])
-  }
+    await updateFeedback(id, { status: isChecked ? 'pending' : 'active' });
+    mutate(['/api/feedback', auth.user.token]);
+  };
 
   return (
     <Box as="tr" key={id}>
@@ -49,8 +51,8 @@ const FeedbackRow = ({ id, author, text, route, status }) => {
         <DeleteFeedbackButton feedbackId={id} />
       </Td>
     </Box>
-  )
-}
+  );
+};
 
-export default FeedbackRow
+export default FeedbackRow;
 ```

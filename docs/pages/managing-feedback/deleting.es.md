@@ -13,8 +13,10 @@ Primero, vamos a crear una función que nos permita borrar feedback desde el lad
 **`lib/db.js`**
 
 ```js
+import { db } from './firebase';
+import { doc, deleteDoc } from 'firebase/firestore';
 export function deleteFeedback(id) {
-  return firestore.collection('feedback').doc(id).delete();
+  return deleteDoc(doc(db, 'feedback', id));
 }
 ```
 

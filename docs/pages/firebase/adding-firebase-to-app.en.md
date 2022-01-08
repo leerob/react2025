@@ -7,10 +7,10 @@ Now that we've set up Firebase for authentication and storing data, we need to a
 First, we need to install the `firebase` client-side SDK.
 
 ```bash
-$ yarn add firebase@7.17.1
+$ yarn add firebase@latest
 ```
 
-This course uses `v7.17.1` of Firebase. If you'd prefer to use a later version, please see [this issue](https://github.com/leerob/fastfeedback/issues/25).
+<!-- This course uses `v7.17.1` of Firebase. If you'd prefer to use a later version, please see [this issue](https://github.com/leerob/fastfeedback/issues/25). -->
 
 ### Environment Variables
 
@@ -53,18 +53,29 @@ We can now securely connect to Firebase. Create a new file `lib/firebase.js` to 
 **`lib/firebase.js`**
 
 ```javascript
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/functions';
-import 'firebase/firestore';
+import { initializeApp } from 'firebase/app';
+// Import firestore for CRUD Operations
+import { getFirestore } from 'firebase/firestore';
 
-if (!firebase.apps.length) {
-  firebase.initializeApp({
-    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID
-  });
+const clientCredentials = {
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
+};
+
+function initFirebase() {
+  if (typeof window !== undefined) {
+    initializeApp(clientCredentials);
+    // console.log("Firebase has been init successfully");
+  }
 }
 
-export default firebase;
+const app = initializeApp(clientCredentials);
+
+const db = getFirestore(app);
+
+export { initFirebase, db, app };
 ```
