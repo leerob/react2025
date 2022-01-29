@@ -6,7 +6,7 @@
     "build": "STORK_PATH=$(pwd)/bin/stork.bin next build"
   },
   "dependencies": {
-    "next": "^12.0.3",
+    "next": "^12.0.9",
     "nextra": "^1.1.0",
     "nextra-theme-docs": "^1.2.1",
     "react": "^17.0.2",
