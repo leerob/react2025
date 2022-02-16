@@ -15,26 +15,28 @@ Context is designed to share data that can be considered “global” for a tree
 **`lib/auth.js`**
 
 ```javascript {11,12,13}
-import React, { useState, useEffect, useContext, createContext } from 'react'
-import firebase from './firebase'
+import React, { useState, useEffect, useContext, createContext } from 'react';
+import { initFirebase } from './firebase';
 
-const authContext = createContext()
+initFirebase();
+
+const authContext = createContext();
 
 export function AuthProvider({ children }) {
-  const auth = useProvideAuth()
-  return <authContext.Provider value={auth}>{children}</authContext.Provider>
+  const auth = useProvideAuth();
+  return <authContext.Provider value={auth}>{children}</authContext.Provider>;
 }
 
 export const useAuth = () => {
-  return useContext(authContext)
-}
+  return useContext(authContext);
+};
 
 function useProvideAuth() {
   return {
     user: null,
     signinWithGitHub: null,
-    signout: null,
-  }
+    signout: null
+  };
 }
 ```
 
@@ -43,65 +45,74 @@ You'll notice we've defined our hook's API, but have not created the functions. 
 **`lib/auth.js`**
 
 ```javascript
-import React, { useState, useEffect, useContext, createContext } from 'react'
-import firebase from './firebase'
+import React, { useState, useEffect, useContext, createContext } from 'react';
+import { initFirebase } from './firebase';
+import { getAuth, signInWithPopup, GithubAuthProvider } from 'firebase/auth';
 
-const authContext = createContext()
+// Initialize Firebase App
+initFirebase();
+
+// Create firebase auth object
+const auth = getAuth();
+
+// Create github provider object
+const githubProvider = new GithubAuthProvider();
+
+// Create google provider object for bonus section ..
+const googleProvider = new GoogleAuthProvider();
+
+const authContext = createContext();
 
 export function AuthProvider({ children }) {
-  const auth = useProvideAuth()
-  return <authContext.Provider value={auth}>{children}</authContext.Provider>
+  const auth = useProvideAuth();
+  return <authContext.Provider value={auth}>{children}</authContext.Provider>;
 }
 
 export const useAuth = () => {
-  return useContext(authContext)
-}
+  return useContext(authContext);
+};
 
 function useProvideAuth() {
-  const [user, setUser] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const handleUser = (rawUser) => {
     if (rawUser) {
-      const user = formatUser(rawUser)
+      const user = formatUser(rawUser);
 
-      setLoading(false)
-      setUser(user)
-      return user
+      setLoading(false);
+      setUser(user);
+      return user;
     } else {
-      setLoading(false)
-      setUser(false)
-      return false
+      setLoading(false);
+      setUser(false);
+      return false;
     }
-  }
+  };
 
   const signinWithGitHub = () => {
-    setLoading(true)
-    return firebase
-      .auth()
-      .signInWithPopup(new firebase.auth.GithubAuthProvider())
-      .then((response) => handleUser(response.user))
-  }
+    setLoading(true);
+    return signInWithPopup(auth, githubProvider).then((response) =>
+      handleUser(response.user)
+    );
+  };
 
   const signout = () => {
-    return firebase
-      .auth()
-      .signOut()
-      .then(() => handleUser(false))
-  }
+    return auth.signOut().then(() => handleUser(false));
+  };
 
   useEffect(() => {
-    const unsubscribe = firebase.auth().onAuthStateChanged(handleUser)
+    const unsubscribe = auth.onAuthStateChanged(handleUser);
 
-    return () => unsubscribe()
-  }, [])
+    return () => unsubscribe();
+  }, []);
 
   return {
     user,
     loading,
     signinWithGitHub,
-    signout,
-  }
+    signout
+  };
 }
 
 const formatUser = (user) => {
@@ -110,9 +121,9 @@ const formatUser = (user) => {
     email: user.email,
     name: user.displayName,
     provider: user.providerData[0].providerId,
-    photoUrl: user.photoURL,
-  }
-}
+    photoUrl: user.photoURL
+  };
+};
 ```
 
 When a user signs in with GitHub, we use the `GithubAuthProvider` and the GitHub app created earlier to fetch information about the user. Then, we save the `response.user` into local state inside this hook.
@@ -128,17 +139,17 @@ First, we need to wrap our application with `AuthProvider` to access the context
 **`pages/_app.js`**
 
 ```javascript
-import { AuthProvider } from '../lib/auth'
+import { AuthProvider } from '../lib/auth';
 
 const App = ({ Component, pageProps }) => {
   return (
     <AuthProvider>
       <Component {...pageProps} />
     </AuthProvider>
-  )
-}
+  );
+};
 
-export default App
+export default App;
 ```
 
 Then, modify the file `pages/index.js` to include the following code.
@@ -146,10 +157,10 @@ Then, modify the file `pages/index.js` to include the following code.
 **`pages/index.js`**
 
 ```javascript
-import { useAuth } from '../lib/auth'
+import { useAuth } from '../lib/auth';
 
 export default function Index() {
-  const auth = useAuth()
+  const auth = useAuth();
 
   return auth.user ? (
     <div>
@@ -158,7 +169,7 @@ export default function Index() {
     </div>
   ) : (
     <button onClick={(e) => auth.signinWithGitHub()}>Sign In</button>
-  )
+  );
 }
 ```
 
@@ -199,19 +210,16 @@ Then, we can add a new function to `useAuth` to sign in with Google. We can also
 **`lib/auth.js`**
 
 ```js
-import Router from 'next/router'
+import Router from 'next/router';
 
 const signinWithGoogle = (redirect) => {
-  setLoading(true)
-  return firebase
-    .auth()
-    .signInWithPopup(new firebase.auth.GoogleAuthProvider())
-    .then((response) => {
-      handleUser(response.user)
+  setLoading(true);
+  return auth.signInWithPopup(auth, googleProvider).then((response) => {
+    handleUser(response.user);
 
-      if (redirect) {
-        Router.push(redirect)
-      }
-    })
-}
+    if (redirect) {
+      Router.push(redirect);
+    }
+  });
+};
 ```

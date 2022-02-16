@@ -14,20 +14,18 @@ To create a link to our Customer Portal inside Stripe, we can invoke a Firebase 
 **`lib/db.js`**
 
 ```js
-import firebase from './firebase'
-
-const app = firebase.app()
+import { app } from './firebase';
 
 export async function goToBillingPortal() {
   const functionRef = app
     .functions('us-central1')
-    .httpsCallable('ext-firestore-stripe-subscriptions-createPortalLink')
+    .httpsCallable('ext-firestore-stripe-subscriptions-createPortalLink');
 
   const { data } = await functionRef({
-    returnUrl: `${window.location.origin}/account`,
-  })
+    returnUrl: `${window.location.origin}/account`
+  });
 
-  window.location.assign(data.url)
+  window.location.assign(data.url);
 }
 ```
 
@@ -36,30 +34,30 @@ Finally, we need a button to call `goToBillingPortal`. This button makes the mos
 **`pages/account.js`**
 
 ```js
-import { useState } from 'react'
-import { Button } from '@chakra-ui/core'
+import { useState } from 'react';
+import { Button } from '@chakra-ui/core';
 
-import { useAuth } from '@/lib/auth'
-import { goToBillingPortal } from '@/lib/db'
+import { useAuth } from '@/lib/auth';
+import { goToBillingPortal } from '@/lib/db';
 
 const Account = () => {
-  const { user, signout } = useAuth()
-  const [isBillingLoading, setBillingLoading] = useState(false)
+  const { user, signout } = useAuth();
+  const [isBillingLoading, setBillingLoading] = useState(false);
 
   return (
     <Button
       onClick={() => {
-        setBillingLoading(true)
-        goToBillingPortal()
+        setBillingLoading(true);
+        goToBillingPortal();
       }}
       isLoading={isBillingLoading}
     >
       Manage Billing
     </Button>
-  )
-}
+  );
+};
 
-export default Account
+export default Account;
 ```
 
 ## Testing

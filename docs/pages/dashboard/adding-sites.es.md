@@ -17,7 +17,7 @@ A continuación, vamos a crear un nuevo archivo para el modal partiendo del comp
 **`components/AddSiteModal.js`**
 
 ```js
-import { useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form';
 import {
   Modal,
   ModalOverlay,
@@ -30,13 +30,13 @@ import {
   FormLabel,
   Button,
   Input,
-  useDisclosure,
-} from '@chakra-ui/core'
+  useDisclosure
+} from '@chakra-ui/core';
 
 const AddSiteModal = ({ children }) => {
   // This is used to manage the opened/closed state
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const { handleSubmit, register } = useForm()
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { handleSubmit, register } = useForm();
 
   return (
     <>
@@ -48,7 +48,7 @@ const AddSiteModal = ({ children }) => {
         _hover={{ bg: 'gray.700' }}
         _active={{
           bg: 'gray.800',
-          transform: 'scale(0.95)',
+          transform: 'scale(0.95)'
         }}
       >
         {children}
@@ -66,7 +66,7 @@ const AddSiteModal = ({ children }) => {
                 name="name"
                 // Register the field so we can access the value
                 ref={register({
-                  required: 'Required',
+                  required: 'Required'
                 })}
               />
             </FormControl>
@@ -76,7 +76,7 @@ const AddSiteModal = ({ children }) => {
                 placeholder="https://website.com"
                 name="url"
                 ref={register({
-                  required: 'Required',
+                  required: 'Required'
                 })}
               />
             </FormControl>
@@ -97,10 +97,10 @@ const AddSiteModal = ({ children }) => {
         </ModalContent>
       </Modal>
     </>
-  )
-}
+  );
+};
 
-export default AddSiteModal
+export default AddSiteModal;
 ```
 
 ![Añadir Modal del Sitio](/modal.png)
@@ -118,21 +118,22 @@ Ahora, vamos a guardar el sitio cuando el usuario hace click en "Create". Primer
 **`lib/db.js`**
 
 ```js
+import { collection, doc, setDoc } from 'firebase/firestore';
 export function createSite(data) {
-  const site = firestore.collection('sites').doc()
-  site.set(data)
+  const siteRef = doc(collection(db, 'sites'));
+  setDoc(siteRef, data);
 
-  return site
+  return siteRef;
 }
 ```
 
-Hay dos cosas que es necesario mencionar de esta función. En primer lugar, es no bloqueante. No estamos esperando el resultado de configurar los datos en el documento que creamos. Esto es porque utilizaremos una UI optimista para _asumir_ que la creación ha sido exitosa. En segundo lugar,  estamos retornando el documento del sitio. Esto nos permite tener acceso al ID del documento, el cual React utilizará como una `key` en la tabla de sitios.
+Hay dos cosas que es necesario mencionar de esta función. En primer lugar, es no bloqueante. No estamos esperando el resultado de configurar los datos en el documento que creamos. Esto es porque utilizaremos una UI optimista para _asumir_ que la creación ha sido exitosa. En segundo lugar, estamos retornando el documento del sitio. Esto nos permite tener acceso al ID del documento, el cual React utilizará como una `key` en la tabla de sitios.
 
 Finalmente, vamos a llamar a`createSite` cuando hacemos click en "Create" (y `handleSubmit`) y actualizamos la caché de SWR para añadir los datos del nuevo sitio.
 
 ```js
-import { useForm } from 'react-hook-form'
-import { mutate } from 'swr'
+import { useForm } from 'react-hook-form';
+import { mutate } from 'swr';
 import {
   Modal,
   ModalOverlay,
@@ -146,17 +147,17 @@ import {
   Button,
   Input,
   useToast,
-  useDisclosure,
-} from '@chakra-ui/core'
+  useDisclosure
+} from '@chakra-ui/core';
 
-import { createSite } from '@/lib/db'
-import { useAuth } from '@/lib/auth'
+import { createSite } from '@/lib/db';
+import { useAuth } from '@/lib/auth';
 
 const AddSiteModal = ({ children }) => {
-  const toast = useToast()
-  const auth = useAuth()
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const { handleSubmit, register } = useForm()
+  const toast = useToast();
+  const auth = useAuth();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { handleSubmit, register } = useForm();
 
   const onCreateSite = ({ name, url }) => {
     // Create the new object to save in Firestore
@@ -164,29 +165,29 @@ const AddSiteModal = ({ children }) => {
       authorId: auth.user.uid,
       createdAt: new Date().toISOString(),
       name,
-      url,
-    }
+      url
+    };
 
     // Retrieve the document ID for Firestore
-    const { id } = createSite(newSite)
+    const { id } = createSite(newSite);
     // Show a toast message
     toast({
       title: 'Success!',
       description: "We've added your site.",
       status: 'success',
       duration: 5000,
-      isClosable: true,
-    })
+      isClosable: true
+    });
     // Update the SWR cache to add the new site
     mutate(
       ['/api/sites', auth.user.token],
       async (data) => ({
-        sites: [{ id, ...newSite }, ...data.sites],
+        sites: [{ id, ...newSite }, ...data.sites]
       }),
       false
-    )
-    onClose()
-  }
+    );
+    onClose();
+  };
 
   return (
     <>
@@ -198,7 +199,7 @@ const AddSiteModal = ({ children }) => {
         _hover={{ bg: 'gray.700' }}
         _active={{
           bg: 'gray.800',
-          transform: 'scale(0.95)',
+          transform: 'scale(0.95)'
         }}
       >
         {children}
@@ -215,7 +216,7 @@ const AddSiteModal = ({ children }) => {
                 placeholder="My site"
                 name="name"
                 ref={register({
-                  required: 'Required',
+                  required: 'Required'
                 })}
               />
             </FormControl>
@@ -225,7 +226,7 @@ const AddSiteModal = ({ children }) => {
                 placeholder="https://website.com"
                 name="url"
                 ref={register({
-                  required: 'Required',
+                  required: 'Required'
                 })}
               />
             </FormControl>
@@ -247,8 +248,8 @@ const AddSiteModal = ({ children }) => {
         </ModalContent>
       </Modal>
     </>
-  )
-}
+  );
+};
 
-export default AddSiteModal
+export default AddSiteModal;
 ```

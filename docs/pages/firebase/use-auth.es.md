@@ -15,26 +15,28 @@ Context está diseñado para compartir datos que pueden ser considerados “glob
 **`lib/auth.js`**
 
 ```javascript {11,12,13}
-import React, { useState, useEffect, useContext, createContext } from 'react'
-import firebase from './firebase'
+import React, { useState, useEffect, useContext, createContext } from 'react';
+import { initFirebase } from './firebase';
 
-const authContext = createContext()
+initFirebase();
+
+const authContext = createContext();
 
 export function AuthProvider({ children }) {
-  const auth = useProvideAuth()
-  return <authContext.Provider value={auth}>{children}</authContext.Provider>
+  const auth = useProvideAuth();
+  return <authContext.Provider value={auth}>{children}</authContext.Provider>;
 }
 
 export const useAuth = () => {
-  return useContext(authContext)
-}
+  return useContext(authContext);
+};
 
 function useProvideAuth() {
   return {
     user: null,
     signinWithGitHub: null,
-    signout: null,
-  }
+    signout: null
+  };
 }
 ```
 
@@ -43,65 +45,74 @@ Te habrás dado cuenta que hemos definido la API de nuestro hook, pero no hemos 
 **`lib/auth.js`**
 
 ```javascript
-import React, { useState, useEffect, useContext, createContext } from 'react'
-import firebase from './firebase'
+import React, { useState, useEffect, useContext, createContext } from 'react';
+import { initFirebase } from './firebase';
+import { getAuth, signInWithPopup, GithubAuthProvider } from 'firebase/auth';
 
-const authContext = createContext()
+// Inicializar la aplicación Firebase
+initFirebase();
+
+// Crear objeto de autenticación de base de fuego
+const auth = getAuth();
+
+// Crear objeto de proveedor de github
+const githubProvider = new GithubAuthProvider();
+
+// Crea un objeto de proveedor de Google para la sección de bonificación.
+const googleProvider = new GoogleAuthProvider();
+
+const authContext = createContext();
 
 export function AuthProvider({ children }) {
-  const auth = useProvideAuth()
-  return <authContext.Provider value={auth}>{children}</authContext.Provider>
+  const auth = useProvideAuth();
+  return <authContext.Provider value={auth}>{children}</authContext.Provider>;
 }
 
 export const useAuth = () => {
-  return useContext(authContext)
-}
+  return useContext(authContext);
+};
 
 function useProvideAuth() {
-  const [user, setUser] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const handleUser = (rawUser) => {
     if (rawUser) {
-      const user = formatUser(rawUser)
+      const user = formatUser(rawUser);
 
-      setLoading(false)
-      setUser(user)
-      return user
+      setLoading(false);
+      setUser(user);
+      return user;
     } else {
-      setLoading(false)
-      setUser(false)
-      return false
+      setLoading(false);
+      setUser(false);
+      return false;
     }
-  }
+  };
 
   const signinWithGitHub = () => {
-    setLoading(true)
-    return firebase
-      .auth()
-      .signInWithPopup(new firebase.auth.GithubAuthProvider())
-      .then((response) => handleUser(response.user))
-  }
+    setLoading(true);
+    return signInWithPopup(auth, githubProvider).then((response) =>
+      handleUser(response.user)
+    );
+  };
 
   const signout = () => {
-    return firebase
-      .auth()
-      .signOut()
-      .then(() => handleUser(false))
-  }
+    return auth.signOut().then(() => handleUser(false));
+  };
 
   useEffect(() => {
-    const unsubscribe = firebase.auth().onAuthStateChanged(handleUser)
+    const unsubscribe = auth.onAuthStateChanged(handleUser);
 
-    return () => unsubscribe()
-  }, [])
+    return () => unsubscribe();
+  }, []);
 
   return {
     user,
     loading,
     signinWithGitHub,
-    signout,
-  }
+    signout
+  };
 }
 
 const formatUser = (user) => {
@@ -110,12 +121,12 @@ const formatUser = (user) => {
     email: user.email,
     name: user.displayName,
     provider: user.providerData[0].providerId,
-    photoUrl: user.photoURL,
-  }
-}
+    photoUrl: user.photoURL
+  };
+};
 ```
 
-Cuando un usuario inicia sesión con GitHub, usamos el `GithubAuthProvider`  y la aplicación de GitHub creada anteriorme para conseguir la información acerca de ese usuario. Después, guardamos el `response.user` en el estado local dentro de ese hook.
+Cuando un usuario inicia sesión con GitHub, usamos el `GithubAuthProvider` y la aplicación de GitHub creada anteriorme para conseguir la información acerca de ese usuario. Después, guardamos el `response.user` en el estado local dentro de ese hook.
 
 Cuando un usuario cierra sesión, o el componente ya no está siendo usado, eliminamos la suscripción y ponemos el usuario a `false`.
 
@@ -128,17 +139,17 @@ Primero, vamos a envolver nuestra aplicación con el `AuthProvider` para acceder
 **`pages/_app.js`**
 
 ```javascript
-import { AuthProvider } from '../lib/auth'
+import { AuthProvider } from '../lib/auth';
 
 const App = ({ Component, pageProps }) => {
   return (
     <AuthProvider>
       <Component {...pageProps} />
     </AuthProvider>
-  )
-}
+  );
+};
 
-export default App
+export default App;
 ```
 
 Después, modificamos el fichero `pages/index.js` para incluir el siguiente código.
@@ -146,10 +157,10 @@ Después, modificamos el fichero `pages/index.js` para incluir el siguiente cód
 **`pages/index.js`**
 
 ```javascript
-import { useAuth } from '../lib/auth'
+import { useAuth } from '../lib/auth';
 
 export default function Index() {
-  const auth = useAuth()
+  const auth = useAuth();
 
   return auth.user ? (
     <div>
@@ -158,7 +169,7 @@ export default function Index() {
     </div>
   ) : (
     <button onClick={(e) => auth.signinWithGitHub()}>Sign In</button>
-  )
+  );
 }
 ```
 
@@ -199,19 +210,16 @@ Después, podemos añadir una nueva función a `useAuth` para iniciar sesión co
 **`lib/auth.js`**
 
 ```js
-import Router from 'next/router'
+import Router from 'next/router';
 
 const signinWithGoogle = (redirect) => {
-  setLoading(true)
-  return firebase
-    .auth()
-    .signInWithPopup(new firebase.auth.GoogleAuthProvider())
-    .then((response) => {
-      handleUser(response.user)
+  setLoading(true);
+  return auth.signInWithPopup(auth, googleProvider).then((response) => {
+    handleUser(response.user);
 
-      if (redirect) {
-        Router.push(redirect)
-      }
-    })
-}
+    if (redirect) {
+      Router.push(redirect);
+    }
+  });
+};
 ```

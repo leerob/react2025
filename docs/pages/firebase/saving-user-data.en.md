@@ -11,19 +11,17 @@ Let's create a new file `lib/db.js` to perform [CRUD actions](https://en.wikiped
 **`lib/db.js`**
 
 ```js
-import firebase from './firebase'
-
-const firestore = firebase.firestore()
+import { db } from './firebase';
+import { doc, updateDoc, setDoc } from 'firebase/firestore';
 
 export function updateUser(uid, data) {
-  return firestore.collection('users').doc(uid).update(data)
+  const userRef = doc(db, 'users', uid);
+  return updateDoc(userRef, data);
 }
 
 export function createUser(uid, data) {
-  return firestore
-    .collection('users')
-    .doc(uid)
-    .set({ uid, ...data }, { merge: true })
+  const userRef = doc(db, 'users', uid);
+  return setDoc(userRef, { uid, ...data }, { merge: true });
 }
 ```
 
@@ -34,62 +32,67 @@ Now, let's consume the `createUser` function inside our `useAuth` hook.
 **`lib/auth.js`**
 
 ```javascript {3,23}
-import React, { useState, useEffect, useContext, createContext } from 'react'
-import firebase from './firebase'
-import { createUser } from './db'
+import React, { useState, useEffect, useContext, createContext } from 'react';
+import { initFirebase } from './firebase';
+import { getAuth, signInWithPopup, GithubAuthProvider } from 'firebase/auth';
+import { createUser } from './db';
 
-const authContext = createContext()
+initFirebase();
+
+const auth = getAuth();
+
+const githubProvider = new GithubAuthProvider();
+
+const googleProvider = new GoogleAuthProvider();
+
+const authContext = createContext();
 
 export function AuthProvider({ children }) {
-  const auth = useProvideAuth()
-  return <authContext.Provider value={auth}>{children}</authContext.Provider>
+  const auth = useProvideAuth();
+  return <authContext.Provider value={auth}>{children}</authContext.Provider>;
 }
 
 export const useAuth = () => {
-  return useContext(authContext)
-}
+  return useContext(authContext);
+};
 
 function useProvideAuth() {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null);
 
   const handleUser = (rawUser) => {
     if (rawUser) {
-      const user = formatUser(rawUser)
+      const user = formatUser(rawUser);
 
-      createUser(user.uid, user)
-      setUser(user)
-      return user
+      createUser(user.uid, user);
+      setUser(user);
+      return user;
     } else {
-      setUser(false)
-      return false
+      setUser(false);
+      return false;
     }
-  }
+  };
 
   const signinWithGitHub = () => {
-    return firebase
-      .auth()
-      .signInWithPopup(new firebase.auth.GithubAuthProvider())
-      .then((response) => handleUser(response.user))
-  }
+    return signInWithPopup(auth, githubProvider).then((response) =>
+      handleUser(response.user)
+    );
+  };
 
   const signout = () => {
-    return firebase
-      .auth()
-      .signOut()
-      .then(() => handleUser(false))
-  }
+    return auth.signOut().then(() => handleUser(false));
+  };
 
   useEffect(() => {
-    const unsubscribe = firebase.auth().onAuthStateChanged(handleUser)
+    const unsubscribe = auth.onAuthStateChanged(handleUser);
 
-    return () => unsubscribe()
-  }, [])
+    return () => unsubscribe();
+  }, []);
 
   return {
     user,
     signinWithGitHub,
-    signout,
-  }
+    signout
+  };
 }
 
 const formatUser = (user) => {
@@ -98,9 +101,9 @@ const formatUser = (user) => {
     email: user.email,
     name: user.displayName,
     provider: user.providerData[0].providerId,
-    photoUrl: user.photoURL,
-  }
-}
+    photoUrl: user.photoURL
+  };
+};
 ```
 
 ## Testing

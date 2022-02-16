@@ -45,20 +45,26 @@ Create a new file `lib/firebase-admin.js` to initialize the application and esta
 **`lib/firebase-admin.js`**
 
 ```javascript
-import admin from 'firebase-admin';
+import admin from "firebase-admin";
 
 if (!admin.apps.length) {
-  admin.initializeApp({
-    credential: admin.credential.cert({
-      project_id: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-      private_key: process.env.FIREBASE_PRIVATE_KEY,
-      client_email: process.env.FIREBASE_CLIENT_EMAIL
-    }),
-    databaseURL: 'YOUR_DATABASE_URL_HERE'
-  });
+  try {
+    admin.initializeApp({
+      credential: admin.credential.cert({
+        clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+        privateKey: process.env.FIREBASE_PRIVATE_KEY,
+        projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+      }),
+      databaseURL: 'YOUR_DATABASE_URL_HERE'
+    });
+  } catch (e: any) {
+    console.log(e.message);
+  }
 }
 
-export default admin.firestore();
+const db = admin.firestore();
+
+export { db }
 ```
 
 <Callout>
@@ -73,7 +79,7 @@ This function will fetch all `Feedback` where the `siteId` matches.
 **`lib/db-admin.js`**
 
 ```js
-import db from './firebase-admin';
+import { db } from './firebase-admin';
 
 export async function getAllFeedback(siteId) {
   try {

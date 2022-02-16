@@ -14,7 +14,7 @@ Checkly abstrae la configuración de cualquier infraestructura y te permite conc
 
 ## Configurando Checkly y Vercel
 
-Configurar Checkly + Vercel es muy simple gracias a la  [app Checkly GitHub](https://www.checklyhq.com/docs/cicd/github/#setting-up-your-github-integration). Después de conectar tu cuenta, navega a una comprobación individual. Debajo de la pestaña CI/CD, puedes enlazar al repositorio correspondiente. Ahora, cada vez que abras una _pull request_ en GitHub, el check o comprobador se ejecutará.
+Configurar Checkly + Vercel es muy simple gracias a la [app Checkly GitHub](https://www.checklyhq.com/docs/cicd/github/#setting-up-your-github-integration). Después de conectar tu cuenta, navega a una comprobación individual. Debajo de la pestaña CI/CD, puedes enlazar al repositorio correspondiente. Ahora, cada vez que abras una _pull request_ en GitHub, el check o comprobador se ejecutará.
 
 ## Creando un Check de navegador
 
@@ -23,25 +23,25 @@ Vamos a crear un check que se ejecutará en cada pull request. Si el test pasa, 
 Este check configura Puppeteer, lanza un navegador y navega a nuestro sitio web. Después, hace una simple afirmación (_assertion_) para asegurarse de que el título de la página es correcto.
 
 ```js
-const assert = require('chai').assert
-const puppeteer = require('puppeteer')
+const assert = require('chai').assert;
+const puppeteer = require('puppeteer');
 
-const browser = await puppeteer.launch()
-const page = await browser.newPage()
+const browser = await puppeteer.launch();
+const page = await browser.newPage();
 
-await page.goto('https://fastfeedback.io')
+await page.goto('https://fastfeedback.io');
 
-const title = await page.title()
+const title = await page.title();
 
-assert.equal(title, 'Fast Feedback')
+assert.equal(title, 'Fast Feedback');
 
-await browser.close()
+await browser.close();
 ```
 
 Podemos hacer comprobaciones más complejas aquí, incluso realizar una captura de pantalla si queremos. Si quieres emplear la URL para la previsualización de tu _deploy_, puedes usar la variable de entorno `ENVIRONMENT_URL` que Vercel configura.
 
 ```js
-process.env.ENVIRONMENT_URL || 'https://fastfeedback.io'
+process.env.ENVIRONMENT_URL || 'https://fastfeedback.io';
 ```
 
 ## Formulario de Inicio de Sesión
@@ -59,16 +59,17 @@ Ahora, podemos actualizar nuestro hook `useAuth` para soportar el inicio de sesi
 **`lib/auth.js`**
 
 ```js
+import { getAuth, signInWithEmailAndPassword } from '@firebase/auth';
+
+const auth = getAuth();
+
 const signinWithEmail = (email, password) => {
-  setLoading(true)
-  return firebase
-    .auth()
-    .signInWithEmailAndPassword(email, password)
-    .then((response) => {
-      handleUser(response.user)
-      Router.push('/sites')
-    })
-}
+  setLoading(true);
+  return signInWithEmailAndPassword(auth, email, password).then((response) => {
+    handleUser(response.user);
+    Router.push('/sites');
+  });
+};
 ```
 
 Finalmente, podemos crear un formulario de login que permita al usuario introducir las credenciales creadas anteriormente e iniciar sesión en la aplicación.
@@ -86,33 +87,33 @@ import {
   Input,
   Stack,
   Icon,
-  useToast,
-} from '@chakra-ui/core'
-import { useForm } from 'react-hook-form'
-import { useState } from 'react'
+  useToast
+} from '@chakra-ui/core';
+import { useForm } from 'react-hook-form';
+import { useState } from 'react';
 
-import { useAuth } from '@/lib/auth'
-import Page from '@/components/Page'
+import { useAuth } from '@/lib/auth';
+import Page from '@/components/Page';
 
 const Login = () => {
-  const toast = useToast()
-  const [loading, setLoading] = useState(false)
-  const { signinWithEmail } = useAuth()
-  const { handleSubmit, register, errors } = useForm()
+  const toast = useToast();
+  const [loading, setLoading] = useState(false);
+  const { signinWithEmail } = useAuth();
+  const { handleSubmit, register, errors } = useForm();
 
   const onLogin = ({ email, pass }) => {
-    setLoading(true)
+    setLoading(true);
     signinWithEmail(email, pass).catch((error) => {
-      setLoading(false)
+      setLoading(false);
       toast({
         title: 'An error occurred.',
         description: error.message,
         status: 'error',
         duration: 5000,
-        isClosable: true,
-      })
-    })
-  }
+        isClosable: true
+      });
+    });
+  };
 
   return (
     <Flex align="center" justify="center" h="100vh" backgroundColor="gray.100">
@@ -143,7 +144,7 @@ const Login = () => {
             id="email"
             name="email"
             ref={register({
-              required: 'Please enter your email.',
+              required: 'Please enter your email.'
             })}
             placeholder="name@site.com"
           />
@@ -159,7 +160,7 @@ const Login = () => {
             id="password"
             type="password"
             ref={register({
-              required: 'Please enter a password.',
+              required: 'Please enter a password.'
             })}
           />
           <FormErrorMessage>
@@ -179,17 +180,17 @@ const Login = () => {
           _hover={{ bg: 'gray.700' }}
           _active={{
             bg: 'gray.800',
-            transform: 'scale(0.95)',
+            transform: 'scale(0.95)'
           }}
         >
           Login
         </Button>
       </Stack>
     </Flex>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
 ```
 
 ## Test de Inicio de Sesión
@@ -211,34 +212,34 @@ Hay algunas funciones diferentes que probablemente usarás para navegar por tu a
 - `page.waitForSelector(id)` - Asegura que el elemento es visible antes de `type`/`click`
 
 ```js
-const puppeteer = require('puppeteer')
-const browser = await puppeteer.launch({ headless: false })
-const page = await browser.newPage()
+const puppeteer = require('puppeteer');
+const browser = await puppeteer.launch({ headless: false });
+const page = await browser.newPage();
 
-const BASE_URL = process.env.ENVIRONMENT_URL || 'https://yourdomain.com'
+const BASE_URL = process.env.ENVIRONMENT_URL || 'https://yourdomain.com';
 
-await page.setViewport({ width: 1280, height: 800 })
-await page.goto(`${BASE_URL}/login`)
+await page.setViewport({ width: 1280, height: 800 });
+await page.goto(`${BASE_URL}/login`);
 
-const navigationPromise = page.waitForNavigation()
+const navigationPromise = page.waitForNavigation();
 
-await page.type('#email', 'checkly@yourdomain.com')
-await page.type('#password', process.env.PASSWORD)
-await page.screenshot({ path: 'login.png' })
+await page.type('#email', 'checkly@yourdomain.com');
+await page.type('#password', process.env.PASSWORD);
+await page.screenshot({ path: 'login.png' });
 
-await page.waitForSelector('#login')
-await page.click('#login')
+await page.waitForSelector('#login');
+await page.click('#login');
 
-await page.waitForSelector('#button')
-await page.click('#button')
+await page.waitForSelector('#button');
+await page.click('#button');
 
-await page.waitForSelector('#input')
-await page.click('#input')
-await page.type('#input', 'Checkly')
+await page.waitForSelector('#input');
+await page.click('#input');
+await page.type('#input', 'Checkly');
 
-await page.screenshot({ path: 'input.png' })
+await page.screenshot({ path: 'input.png' });
 
-await browser.close()
+await browser.close();
 ```
 
 ### Puppeteer Recorder

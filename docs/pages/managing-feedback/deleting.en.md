@@ -14,8 +14,10 @@ First, let's create a function allowing us to delete feedback from the client-si
 **`lib/db.js`**
 
 ```js
+import { db } from './firebase';
+import { doc, deleteDoc } from 'firebase/firestore';
 export function deleteFeedback(id) {
-  return firestore.collection('feedback').doc(id).delete();
+  return deleteDoc(doc(db, 'feedback', id));
 }
 ```
 

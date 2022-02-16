@@ -27,23 +27,23 @@ After creating the Checkout session, the Stripe Firebase extension will populate
 **`lib/db.js`**
 
 ```js
-import firebase from './firebase';
+import { initFirebase, db } from './firebase';
+import { collection, addDoc } from 'firebase/firestore';
 import getStripe from './stripe';
 
 const firestore = firebase.firestore();
 
 export async function createCheckoutSession(uid) {
-  const checkoutSessionRef = await firestore
-    .collection('users')
-    .doc(uid)
-    .collection('checkout_sessions')
-    .add({
+  const checkoutSessionRef = await addDoc(
+    collection(db, `users/${uid}/chekout_sessions`),
+    {
       price: 'price_HLxRKYrVN3CVzy',
       // This can be removed if you don't want promo codes
       allow_promotion_codes: true,
       success_url: window.location.origin,
       cancel_url: window.location.origin
-    });
+    }
+  );
 
   checkoutSessionRef.onSnapshot(async (snap) => {
     const { sessionId } = snap.data();
@@ -115,14 +115,15 @@ You'll likely only want to show this view if the user is not already on a paid p
 **`lib/auth.js`**
 
 ```js
+import { getAuth } from "firebase/auth";
 const user = await formatUser(rawUser);
-
+const auth = getAuth();
 ..
 ..
 
 const getStripeRole = async () => {
-  await firebase.auth().currentUser.getIdToken(true);
-  const decodedToken = await firebase.auth().currentUser.getIdTokenResult();
+  await auth.currentUser.getIdToken(true);
+  const decodedToken = await auth.currentUser.getIdTokenResult();
 
   return decodedToken.claims.stripeRole || 'free';
 };

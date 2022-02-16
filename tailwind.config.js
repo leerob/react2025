@@ -1,6 +1,5 @@
 module.exports = {
-  mode: 'jit',
-  purge: ['./pages/**/*.tsx', './components/**/*.tsx'],
+  content: ['./pages/**/*.tsx', './components/**/*.tsx'],
   theme: {
     fontFamily: {
       sans: ['Inter', '-apple-system'],
