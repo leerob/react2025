@@ -79,5 +79,5 @@ Si no quieres utilizar Fathom, aquí tienes algunas alternativas _open-source_.
 - [Offen](https://www.offen.dev/)
 - [Ackee](https://ackee.electerious.com/)
 
-[Aquí tienes un ejemplo](https://github.com/tobimori/www/commit/b929fb3de83f2938c7473d6b1be1842954938e20) utilizando Ackee con Next.js.
+[Aquí tienes un ejemplo](https://gist.github.com/tobimori/857caadf29c125f9ed342ae847c7f5dc) utilizando Ackee con Next.js.
 [¡Gracias, Tobias!](https://github.com/tobimori)
