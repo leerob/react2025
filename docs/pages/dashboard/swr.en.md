@@ -4,7 +4,7 @@
 SWR first returns the data from cache (stale), then sends the fetch request (revalidate), and finally comes with the up-to-date data again.
 
 This is important for our dashboard page because it can be left open and the data will remain fresh.
-If you re-focus or switch between tabs, SWR will [automatically revalidate data](https://swr.now.sh/#focus-revalidation).
+If you re-focus or switch between tabs, SWR will [automatically revalidate data](https://swr.vercel.app/docs/revalidation).
 
 Let's install SWR now.
 
