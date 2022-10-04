@@ -5,15 +5,15 @@
 - Las páginas que utilizan Generación Estática y los _assets_ (JS, CSS, fuentes, etc) automáticamente serán servidos por la [Vercel Edge Network](https://vercel.com/edge-network), la cual es extremadamente rápida.
 - Las páginas que utilizan renderizado en el lado del servidor y las API routes automáticamente estarán aisladas como [funciones serverless](https://vercel.com/docs/v2/serverless-functions/introduction). Esto permite escalar infinitamente el renderizado de las páginas y las peticiones de la API.
 
-**Vercel es como AWS para desarrolladores fron-end.** Además tiene soporte para:
+**Vercel es como AWS para desarrolladores front-end.** Además tiene soporte para:
 
-- **Dominios personalizados:** una vez deplegada tu app en Vercel puedes asignar un [dominio personalizado](https://vercel.com/docs/v2/custom-domains) a tu app de Next.js.
+- **Dominios personalizados:** una vez desplegada tu app en Vercel puedes asignar un [dominio personalizado](https://vercel.com/docs/v2/custom-domains) a tu app de Next.js.
 - **Environment Variables:** puedes también definir [variables de entorno](https://zeit.co/docs/v2/build-step#environment-variables) en Vercel. Después, puedes [utilizar estas variables de entorno](https://nextjs.org/docs/api-reference/next.config.js/environment-variables) en tu app de Next.js.
 - **HTTPS automático:** HTTPS está habilitado por defecto (incluyendo dominios personalizados) y no requiere ninguna configuración adicional. También auto-renueva los certificados SSL.
 
 Vercel hizo un gran descubrimiento cuando se dio cuenta de que los despliegues en previsualización o _preview_ con URLs son una gran herramienta para equipos de front-end. Ellos crearon un flujo de trabajo para el despliegue / revisión de código en tiempo real — similar a la previsualización en un CMS, pero por medio de la [integración con Git y el despliegue con cada push](https://vercel.com/github).
 
-Tu URL es desplegada en cada punto del mundo, todos tus archivos estáticos están en caché, comprimidos con los mejores códecs (como [Brotli](https://medium.com/oyotech/how-brotli-compression-gave-us-37-latency-improvement-14d41e50fee4), que está construido dentro de Verceel), y optimizado para cada métrica de rendimiento en front-end por la que te quieras preocupar.
+Tu URL es desplegada en cada punto del mundo, todos tus archivos estáticos están en caché, comprimidos con los mejores códecs (como [Brotli](https://medium.com/oyotech/how-brotli-compression-gave-us-37-latency-improvement-14d41e50fee4), que está construido dentro de Vercel), y optimizado para cada métrica de rendimiento en front-end por la que te quieras preocupar.
 
 ## Cómo Desplegar
 
