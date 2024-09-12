@@ -1,18 +1,8 @@
 # React 2025
 
-React 2025 is a course showing the journey from zero lines of code to production for a real SaaS app called [Fast Feedback](https://github.com/leerob/fastfeedback). This repo holds the source code of the course's landing page and docs site.
-
-## Running Locally
-
-```bash
-$ git clone https://github.com/leerob/react2025.git
-$ cd react2025
-$ yarn
-$ yarn dev
-```
-
-## Built Using
-
-- [Next.js](https://nextjs.org/)
-- [Vercel](https://vercel.com)
-- [Tailwind CSS](https://tailwindcss.com/)
+> [!WARNING]  
+> The repository backing React 2025 has been updated to match what React actually will look like in 2025.
+> 
+> This means it uses all of the latest React 19 features, as well as improvements in Next.js in the past 4 years. You can still use this repo as an archived reference, but I would recommend checking out the new repo to see the latest patterns.
+> 
+> [**View the updated repo**](https://github.com/leerob/next-saas-starter)
